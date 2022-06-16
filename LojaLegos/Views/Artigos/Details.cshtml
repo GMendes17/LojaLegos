@@ -1,0 +1,164 @@
+﻿@model LojaLegos.Models.Artigo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div>
+    <div class="pai" style="padding-top:50px;">
+        <div class="Imag" style="width: 55%;float:left;padding-left:50px;">
+            <img src="~/Imagens/@Html.DisplayFor(model => model.Foto)" class="card-img-top" alt="..." style="border:1px; border: 1px solid #000000" >
+        </div>
+        <div class="detalhes" style="width: 45%; float:left; ">
+            <h2 style="text-align:center;">  @Html.DisplayFor(model => model.Nome)</h2>
+            <br />
+            
+            <div style="padding-left:150px;">
+                <div style="background-color: #fff59e; width:80%">
+                    <br />
+                    <h4 style="padding-left:20px;">N.º  @Html.DisplayFor(model => model.Nr) </h4>
+                    <br />
+                    <h4 style="padding-left:20px;">Peças : @Html.DisplayFor(model => model.NrPecas) </h4>
+                    <br />
+                    <br />
+                    <h3 style="padding-left:20px;">@Html.DisplayFor(model => model.Preco)€</h3>
+                    <button style="background-color:darkgoldenrod;text-align:center;width:100%;">
+                        <h2><img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png" >  adicionar ao carrinho</h2>
+                    <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
+                    </button>
+                </div>
+                
+            </div>
+
+            <!--teste-->
+            <div class="card h-100" style="width:40%;">
+                
+                <div class="card-body" style="border: 3px;">
+                     <h5 class="card-title">@Html.DisplayFor(model => model.Nr) </h5>
+                     <h5> @Html.DisplayFor(model => model.NrPecas) </h5>
+                     <p class="card-text">@Html.DisplayFor(model => model.Preco) </p>
+        
+                </div>
+                
+                 <button class="card-footer mt-auto " style="border:0px ;padding:5px 0px ;background-color:darkgoldenrod;margin-bottom:0px;" >
+                     <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png" >  adicionar ao carrinho</p> 
+            
+                         <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
+                </button>
+    </div>
+        </div>
+
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NrPecas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NrPecas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Detalhes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Detalhes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Armazem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Armazem.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

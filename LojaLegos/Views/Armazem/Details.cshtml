@@ -1,0 +1,56 @@
+﻿@model LojaLegos.Models.Armazem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h1>Armazem</h1>
+
+    <h4>@Html.DisplayNameFor(model => model.Local) : @Html.DisplayFor(model => model.Local)</h4>
+           
+    <h4>@Html.DisplayNameFor(model => model.Responsavel) : @Html.DisplayFor(model => model.Responsavel.Nome)</h4>
+   
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>ID</h4>
+            </th>
+            <th>
+                <h4>Produto</h4>
+            </th>
+            <th>
+                <h4>Stock</h4>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Artigos) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>    
+                 <a href = "~/Artigos/Edit/@item.Id ">Edit</a> 
+            </td>
+       </tr>   
+} 
+     </tbody>
+</table>
+
+                                                                            <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+                                                                            <a asp-action="Index">Back to List</a>
+
+</div>
+
+ 

@@ -1,0 +1,262 @@
+﻿@model IEnumerable<LojaLegos.Models.Artigo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    #btnParaCat:hover{
+        background-color: #ffc001;
+        border:5px black;
+        
+    }
+    #btnParaCat{
+         width:100%
+    }
+    #navbar{
+        
+        width:18%;
+        float:left;
+        
+        
+    }
+    
+    #mosaico{
+        
+        width: 82%;
+        float:left;
+        
+    }
+</style>
+
+<div class=" pai" style="width: 100%;">
+<div class="row" id="navbar" >
+  <div class="col-sm-2" style="width:100%">
+    <nav class ="navbar " style=" background-color: #fddd01;width:100%;" >
+        <ul class ="nav navbar-nav" style="width:100%"> 
+            <form asp-action="Index" method="get">     
+            <li class ="nav-item" id="btnParaCat" >
+                <input  type="submit" value="Legos"  href="/Artigos" class="btn btn-default" style=" text-align: left;width:100%;" />
+            </li>
+            <li class ="nav-item" id="btnParaCat">
+                <input  type="submit" value="Technic"  name="SearchString" class="btn btn-default" style=" text-align: left;width:100%;"/>
+            </li>
+            <li class ="nav-item" id="btnParaCat">
+               <input  type="submit" value="City"  name="SearchString" class="btn btn-default" style=" text-align: left;width:100%;"  />
+            </li>
+            <li class ="nav-item" id="btnParaCat">
+                <input  type="submit" value="Duplo"  name="SearchString" class="btn btn-default" style=" text-align: left;width:100%;" />
+            </li>
+            <li class ="nav-item" id="btnParaCat">
+                <input  type="submit" value="Minifigures"  name="SearchString" class="btn btn-default" style=" text-align: left;width:100%;" />
+            </li>
+            <li class ="nav-item">
+                <p>
+                     <a asp-action="Create" style="color:black;">Create New</a>
+                </p>
+            </li>
+            </form>
+        </ul>
+    </nav>
+</div>
+</div>
+
+
+<div class="col-sm-8" id="mosaico">
+<div class="row row-cols-1 row-cols-md-4 g-4" style="padding-top: 20px ;padding-left:25px;">
+@foreach (var item in Model){
+    
+
+
+  <div class="col">
+    <div class="card h-100">
+      <a asp-action="Details" asp-route-id="@item.Id" style = "text-decoration:none; color:black; ">
+      <div class="card-body" style="border: 3px;">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nr) @Html.DisplayFor(modelItem => item.Nome)</h5>
+        <img src="~/Imagens/@Html.DisplayFor(modelItem => item.Foto)" class="card-img-top" alt="...">
+        <p class="card-text">@Html.DisplayFor(modelItem => item.Detalhes) </p>
+        
+      </div>
+       </a>
+        <button class="card-footer mt-auto " style="border:0px ;padding:5px 0px ;background-color:darkgoldenrod;margin-bottom:0px;" >
+            <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png" >  adicionar ao carrinho</p> 
+            
+            <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
+        </button>
+    </div>
+  </div>
+
+}
+</div>
+</div>
+
+</div>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrPecas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detalhes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Armazem)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrPecas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detalhes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armazem.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
