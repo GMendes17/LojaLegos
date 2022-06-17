@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {}
+    "C:\\Users\\gonca\\Desktop\\LojaLegoTeste\\LojaLegos\\LojaLegos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {
+    "C:\\Users\\gonca\\Desktop\\LojaLegoTeste\\LojaLegos\\LojaLegos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+        "projectUniqueName": "C:\\Users\\gonca\\Desktop\\LojaLegoTeste\\LojaLegos\\LojaLegos.csproj",
         "projectName": "LojaLegos",
-        "projectPath": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+        "projectPath": "C:\\Users\\gonca\\Desktop\\LojaLegoTeste\\LojaLegos\\LojaLegos.csproj",
         "packagesPath": "C:\\Users\\gonca\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\obj\\",
+        "outputPath": "C:\\Users\\gonca\\Desktop\\LojaLegoTeste\\LojaLegos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gonca\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VlX6Fh3OyMKHgMr2uSahjhrgiRXtiKe0Xvl4qBqljtHrDip/loCbKSPYQtq7yxa91P1cKKtd1Uy2iNePrs4KmA==",
+  "dgSpecHash": "RG9rQTDRENNILwkm2LJwDWM+LfDe6tU/QM/cCUv2XSAc7WSW19Vx31IH8YDZa1hwaQshyMxT8vMHSiRZ55JX1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+  "projectFilePath": "C:\\Users\\gonca\\Desktop\\LojaLegoTeste\\LojaLegos\\LojaLegos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gonca\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\gonca\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
