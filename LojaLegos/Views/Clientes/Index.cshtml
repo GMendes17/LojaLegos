@@ -8,7 +8,7 @@
 @if (User.IsInRole("Gestor"))
 {
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Adicionar novo cliente</a>
     </p>
 }
 <table class="table">
@@ -79,7 +79,7 @@
                  <text>
                  <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                  <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                 <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
+                 <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
                  </text>
                     }
             </td>

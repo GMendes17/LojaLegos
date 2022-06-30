@@ -8,7 +8,7 @@
 
 
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Adicionar novo funcionário</a>
     </p>
 
 <table class="table">
@@ -51,9 +51,9 @@
                 @Html.DisplayFor(modelItem => item.Gestor.Id)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }

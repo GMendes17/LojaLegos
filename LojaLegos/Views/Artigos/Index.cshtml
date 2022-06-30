@@ -61,9 +61,12 @@ function pinta(x) {
                 <input  type="submit" value="Minifigures"  name="SearchString" class="btn btn-default" style=" text-align: left;width:100%;color: white;" />
             </li>
             <li class ="nav-item">
+                @if (User.IsInRole("Gestor"))
+                {
                 <p>
-                     <a asp-action="Create" style="color:black;">Create New</a>
+                    <a asp-action="Create" style="color:black;">Criar novo produto</a>
                 </p>
+                }
             </li>
             </form>
         </ul>
@@ -260,9 +263,14 @@ function pinta(x) {
                 @Html.DisplayFor(modelItem => item.Armazem.Id)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @if (User.IsInRole("Gestor"))
+                {
+                <text>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </text>
+                }
             </td>
         </tr>
 }
