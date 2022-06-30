@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace LojaLegos.Controllers
 {
     [Authorize]
-    [Authorize(Roles = "Gestor,Gestor")]
+    [Authorize(Roles = "Gestor")]
     public class FuncionariosController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -13,7 +13,7 @@ namespace LojaLegos.Controllers
 {
 
     [Authorize]
-    [Authorize(Roles = "Gestor,Gestor")]
+    [Authorize(Roles = "Gestor")]
 
     public class GestoresController : Controller
     {
