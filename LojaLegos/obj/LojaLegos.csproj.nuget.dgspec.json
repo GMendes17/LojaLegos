@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {}
+    "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {
+    "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+        "projectUniqueName": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
         "projectName": "LojaLegos",
-        "projectPath": "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
-        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\obj\\",
+        "projectPath": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+        "packagesPath": "C:\\Users\\gonca\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gonca\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,23 +46,25 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             }
           },
           "imports": [
@@ -83,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

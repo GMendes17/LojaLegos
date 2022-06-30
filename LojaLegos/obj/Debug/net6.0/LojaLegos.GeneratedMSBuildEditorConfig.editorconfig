@@ -8,145 +8,165 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LojaLegos
 build_property.RootNamespace = LojaLegos
-build_property.ProjectDir = C:\Users\pedro\Desktop\LEI\2ano\2sem\DW\LojaLegos\LojaLegos\
+build_property.ProjectDir = C:\Users\gonca\Source\Repos\GMendes17\LojaLegos\LojaLegos\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\pedro\Desktop\LEI\2ano\2sem\DW\LojaLegos\LojaLegos
+build_property.MSBuildProjectDirectory = C:\Users\gonca\Source\Repos\GMendes17\LojaLegos\LojaLegos
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Armazem/Create.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Armazem/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYXplbVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Armazem/Delete.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Armazem/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYXplbVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Armazem/Details.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Armazem/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYXplbVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Armazem/Edit.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Armazem/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYXplbVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Armazem/Index.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Armazem/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJtYXplbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Artigos/Create.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Artigos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWdvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Artigos/Delete.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Artigos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWdvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Artigos/Details.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Artigos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWdvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Artigos/Edit.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Artigos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWdvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Artigos/Index.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Artigos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWdvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Clientes/Create.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Clientes/Delete.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Clientes/Details.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Clientes/Edit.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Clientes/Index.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Funcionarios/Create.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Funcionarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Funcionarios/Delete.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Funcionarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Funcionarios/Details.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Funcionarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Funcionarios/Edit.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Funcionarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Funcionarios/Index.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Funcionarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnVuY2lvbmFyaW9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Gestores/Create.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Gestores/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VzdG9yZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Gestores/Delete.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Gestores/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VzdG9yZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Gestores/Details.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Gestores/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VzdG9yZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Gestores/Edit.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Gestores/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VzdG9yZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Gestores/Index.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Gestores/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VzdG9yZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Home/Index.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Home/Privacy.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Shared/Error.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/_ViewImports.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/_ViewStart.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pedro/Desktop/LEI/2ano/2sem/DW/LojaLegos/LojaLegos/Views/Shared/_Layout.cshtml]
+[C:/Users/gonca/Source/Repos/GMendes17/LojaLegos/LojaLegos/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3cqlzzn7c9
