@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LojaLegos.Data;
 using LojaLegos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaLegos.Controllers
 {
+    [Authorize]
+    [Authorize(Roles = "Gestor,Gestor")]
     public class ClientesController : Controller
     {
         private readonly ApplicationDbContext _context;
