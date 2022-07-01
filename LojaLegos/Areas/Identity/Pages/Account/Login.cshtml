@@ -4,9 +4,8 @@
 @{
     ViewData["Title"] = "Log in";
 }
-
-<div class="row">
-    <div class="col-md-4">
+<div class="row" style="justify-content: center;height: 80vh;">
+    <div class="col-md-6" style="align-self: center;text-align: -webkit-center;">
         <section>
             <form id="account" method="post">
                 <h2>Entra na tua conta LojaLegos!</h2>
@@ -25,7 +24,10 @@
                 <p></p>
                 <div>
                     <div class="checkbox">
-                        <label asp-for="Input.RememberMe" class="form-label">
+                      
+                        <a id="forgot-password" asp-page="./ForgotPassword">Esqueceste-te da palavra-passe?</a>
+                        
+                        <label asp-for="Input.RememberMe" class="form-label" style="float:right">
                             <input class="form-check-input" asp-for="Input.RememberMe" />
                             Guardar sessão
                         </label>
@@ -38,9 +40,7 @@
                     </p>
                 </div>
                 <div>
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Esqueceste-te da palavra-passe?</a>
-                    </p>
+                    
                     <p>
                         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Ainda não tens conta? Regista-te agora!</a>
                     </p>
