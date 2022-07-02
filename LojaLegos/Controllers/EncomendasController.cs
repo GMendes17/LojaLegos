@@ -7,108 +7,95 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LojaLegos.Data;
 using LojaLegos.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace LojaLegos.Controllers
 {
-    [Authorize]
-    [Authorize(Roles = "Gestor,Funcionario")]
-    public class ClientesController : Controller
+    public class EncomendasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ClientesController(ApplicationDbContext context)
+        public EncomendasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Clientes
+        // GET: Encomendas
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Clientes.ToListAsync());
+            var applicationDbContext = _context.Encomendas.Include(e => e.Cliente);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Clientes/Details/5
+        
+
+        // GET: Encomendas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Clientes == null)
+            if (id == null || _context.Encomendas == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes
+            var encomenda = await _context.Encomendas
+                .Include(e => e.Cliente)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
+            if (encomenda == null)
             {
                 return NotFound();
             }
 
-            return View(cliente);
+            return View(encomenda);
         }
 
-        public async Task<IActionResult> MeuPerfil(int? id)
-        {
-            if (id == null || _context.Clientes == null)
-            {
-                return NotFound();
-            }
-
-            var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
-
-            return View(cliente);
-        }
-
-        // GET: Clientes/Create
+        // GET: Encomendas/Create
         public IActionResult Create()
         {
+            ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id");
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: Encomendas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PrimeiroNome,Apelido,Morada,CodPostal,Cidade,País,Email,NrTelemovel,NrContribuinte")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cliente);
+                _context.Add(encomenda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(cliente);
+            ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", encomenda.ClienteFK);
+            return View(encomenda);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Encomendas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Clientes == null)
+            if (id == null || _context.Encomendas == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes.FindAsync(id);
-            if (cliente == null)
+            var encomenda = await _context.Encomendas.FindAsync(id);
+            if (encomenda == null)
             {
                 return NotFound();
             }
-            return View(cliente);
+            ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", encomenda.ClienteFK);
+            return View(encomenda);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Encomendas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PrimeiroNome,Apelido,Morada,CodPostal,Cidade,País,Email,NrTelemovel,NrContribuinte")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda)
         {
-            if (id != cliente.Id)
+            if (id != encomenda.Id)
             {
                 return NotFound();
             }
@@ -117,12 +104,12 @@ namespace LojaLegos.Controllers
             {
                 try
                 {
-                    _context.Update(cliente);
+                    _context.Update(encomenda);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(cliente.Id))
+                    if (!EncomendaExists(encomenda.Id))
                     {
                         return NotFound();
                     }
@@ -133,49 +120,51 @@ namespace LojaLegos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(cliente);
+            ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", encomenda.ClienteFK);
+            return View(encomenda);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Encomendas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Clientes == null)
+            if (id == null || _context.Encomendas == null)
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes
+            var encomenda = await _context.Encomendas
+                .Include(e => e.Cliente)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (cliente == null)
+            if (encomenda == null)
             {
                 return NotFound();
             }
 
-            return View(cliente);
+            return View(encomenda);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Encomendas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Clientes == null)
+            if (_context.Encomendas == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Clientes'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Encomendas'  is null.");
             }
-            var cliente = await _context.Clientes.FindAsync(id);
-            if (cliente != null)
+            var encomenda = await _context.Encomendas.FindAsync(id);
+            if (encomenda != null)
             {
-                _context.Clientes.Remove(cliente);
+                _context.Encomendas.Remove(encomenda);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClienteExists(int id)
+        private bool EncomendaExists(int id)
         {
-          return _context.Clientes.Any(e => e.Id == id);
+          return _context.Encomendas.Any(e => e.Id == id);
         }
     }
 }

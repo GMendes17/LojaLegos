@@ -19,15 +19,37 @@ namespace LojaLegos.Controllers
             _context = context;
         }
 
-        ////GET: Artigos(Original ---------------------------------------------
-        //public async Task<IActionResult> Index()
-        //{
-        //    var applicationDbContext = _context.Artigos.Include(a => a.Armazem);
-        //    return View(await applicationDbContext.ToListAsync());
-        //}
+        [HttpPost]
+        public async Task CoockieCarrinhoCompras(string num)
+        {
+            //HttpContext.Response.Cookies.Append(key, value);
+            //HttpContext.Request.Cookies[key];
+            //Response.Cookies.Delete(key)
 
 
-        //GET: Artigos(Teste ---------------------------------------------
+            if (HttpContext.Request.Cookies["carrinho"] == null)
+            {
+                HttpContext.Response.Cookies.Append("carrinho", num + "-");
+            }
+            else
+            {
+               if(!HttpContext.Request.Cookies["carrinho"].Split("-").Contains(num))
+               {
+                 HttpContext.Response.Cookies.Append("carrinho", HttpContext.Request.Cookies["carrinho"] + num + "-");
+               }
+                
+                
+
+
+
+            }
+            
+        }
+        public async Task<IActionResult> CarrinhoCompras()
+        {
+            
+            return View();
+        }
         public async Task<IActionResult> Index(string searchString)
         {
 

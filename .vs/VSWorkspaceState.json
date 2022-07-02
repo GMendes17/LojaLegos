@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LojaLegos\\Views",
+    "\\LojaLegos\\Views\\Artigos"
   ],
   "SelectedNode": "\\LojaLegos.sln",
   "PreviewInSolutionExplorer": false

@@ -1,0 +1,73 @@
+﻿@model LojaLegos.Models.Cliente
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div style="width:80%;margin:auto;">
+    <h1>Details</h1>
+
+    <div>
+        <h4>Cliente</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.PrimeiroNome)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.PrimeiroNome)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Apelido)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Apelido)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Morada)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Morada)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.CodPostal)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.CodPostal)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Cidade)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Cidade)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.País)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.País)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.NrTelemovel)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.NrTelemovel)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.NrContribuinte)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.NrContribuinte)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

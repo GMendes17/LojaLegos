@@ -1,4 +1,6 @@
-﻿@model IEnumerable<LojaLegos.Models.Artigo>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@model IEnumerable<LojaLegos.Models.Artigo>
 
 @{
     ViewData["Title"] = "Index";
@@ -27,7 +29,9 @@
         
     }
 </style>
+
 <script>
+
 function despinta(x) {
   x.style.backgroundColor = "white";
   x.style.color = "rgb(253, 120, 36)";
@@ -37,6 +41,12 @@ function pinta(x) {
   x.style.backgroundColor = "rgb(253, 120, 36)"
   x.style.color = "white";
 }
+
+function f1(elem) {
+    
+  $.post("/Artigos/CoockieCarrinhoCompras", { num : elem });
+}
+
 </script>
 
 <div class=" pai" style="width: 100%;">
@@ -60,11 +70,11 @@ function pinta(x) {
             <li class ="nav-item" id="btnParaCat">
                 <input  type="submit" value="Minifigures"  name="SearchString" class="btn btn-default" style=" text-align: left;width:100%;color: white;" />
             </li>
-            <li class ="nav-item">
+            <li class ="nav-item" id="btnParaCat">
                 @if (User.IsInRole("Gestor"))
                 {
                 <p>
-                    <a asp-action="Create" style="color:black;">Criar novo produto</a>
+                    <a asp-action="Create" class="btn btn-default" style=" text-align: left;width:100%;color: white;" >Criar novo produto</a>
                 </p>
                 }
             </li>
@@ -91,11 +101,23 @@ function pinta(x) {
         
       </div>
        </a>
-        <button class="card-footer mt-auto " style="border:0px; ;padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)" >
-            <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png" >  adicionar ao carrinho</p> 
+      
+       @if (SignInManager.IsSignedIn(User)){
+           <button class="card-footer mt-auto " onclick="f1(@Html.DisplayFor(modelItem => item.Id))" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+                <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
+           </button>
+       }
+       else
+       {
+           
+            <a asp-area="Identity" asp-page="/Account/Login" class="card-footer mt-auto "   style="text-decoration: none;text-align:center; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)" >    
+                <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
+            </a> 
             
-            <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
-        </button>
+        }
+                            <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
+     
+        
     </div>
   </div>
 
@@ -106,176 +128,7 @@ function pinta(x) {
 </div>
 
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br /><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Foto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NrPecas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Detalhes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Armazem)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Foto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NrPecas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detalhes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Armazem.Id)
-            </td>
-            <td>
-                @if (User.IsInRole("Gestor"))
-                {
-                <text>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-                </text>
-                }
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
 
 
 

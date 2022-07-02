@@ -1,0 +1,56 @@
+﻿@model LojaLegos.Models.Artigo
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script>
+    $(document).ready(function(){
+  $.get("/Artigos/ObterDadosCookie", function(data){
+    console.log(data);
+  })
+})
+
+</script>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               
+            </th>
+            <th>
+                
+            </th>
+            <th>
+                
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script>
+
+</script>

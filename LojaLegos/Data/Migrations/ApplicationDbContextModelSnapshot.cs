@@ -34,7 +34,7 @@ namespace LojaLegos.Data.Migrations
 
                     b.HasIndex("EncomendasId");
 
-                    b.ToTable("ArtigoEncomenda");
+                    b.ToTable("ArtigoEncomenda", (string)null);
                 });
 
             modelBuilder.Entity("LojaLegos.Models.Armazem", b =>
@@ -55,7 +55,7 @@ namespace LojaLegos.Data.Migrations
 
                     b.HasIndex("ResponsavelFK");
 
-                    b.ToTable("Armazem");
+                    b.ToTable("Armazem", (string)null);
                 });
 
             modelBuilder.Entity("LojaLegos.Models.Artigo", b =>
@@ -97,7 +97,7 @@ namespace LojaLegos.Data.Migrations
 
                     b.HasIndex("ArmazemFK");
 
-                    b.ToTable("Artigos");
+                    b.ToTable("Artigos", (string)null);
                 });
 
             modelBuilder.Entity("LojaLegos.Models.Cliente", b =>
@@ -137,7 +137,7 @@ namespace LojaLegos.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Clientes", (string)null);
 
                     b.HasData(
                         new
@@ -176,7 +176,7 @@ namespace LojaLegos.Data.Migrations
 
                     b.HasIndex("ClienteFK");
 
-                    b.ToTable("Encomendas");
+                    b.ToTable("Encomendas", (string)null);
                 });
 
             modelBuilder.Entity("LojaLegos.Models.Funcs", b =>
@@ -206,7 +206,7 @@ namespace LojaLegos.Data.Migrations
 
                     b.HasIndex("ChefeFK");
 
-                    b.ToTable("Funcionarios");
+                    b.ToTable("Funcionarios", (string)null);
 
                     b.HasData(
                         new
@@ -245,7 +245,7 @@ namespace LojaLegos.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Gestor");
+                    b.ToTable("Gestor", (string)null);
 
                     b.HasData(
                         new
