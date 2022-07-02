@@ -37,10 +37,6 @@ namespace LojaLegos.Controllers
                {
                  HttpContext.Response.Cookies.Append("carrinho", HttpContext.Request.Cookies["carrinho"] + num + "-");
                }
-                
-                
-
-
 
             }
             

@@ -4,13 +4,9 @@
     ViewData["Title"] = "Index";
 }
 <div style="width:80%;margin:auto;">
-<h1>Index</h1>
-@if (User.IsInRole("Gestor"))
-{
-    <p>
-        <a asp-action="Create">Adicionar novo cliente</a>
-    </p>
-}
+<h1>Lista de Clientes</h1>
+
+
 <table class="table">
     <thead>
         <tr>

@@ -18,9 +18,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using LojaLegos.Models;
 
 namespace LojaLegos.Areas.Identity.Pages.Account
 {
+    
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -138,7 +140,8 @@ namespace LojaLegos.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        
+                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl  });
                     }
                     else
                     {

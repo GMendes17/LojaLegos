@@ -91,10 +91,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gonca/source/repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Details - Cópia.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscyAtIEPDs3BpYS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gonca/source/repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -105,6 +101,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gonca/source/repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonca/source/repos/GMendes17/LojaLegos/LojaLegos/Views/Clientes/MeuPerfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcTWV1UGVyZmlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gonca/source/repos/GMendes17/LojaLegos/LojaLegos/Views/Encomendas/Create.cshtml]

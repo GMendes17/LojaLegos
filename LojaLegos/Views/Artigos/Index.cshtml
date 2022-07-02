@@ -103,14 +103,14 @@ function f1(elem) {
        </a>
       
        @if (SignInManager.IsSignedIn(User)){
-           <button class="card-footer mt-auto " onclick="f1(@Html.DisplayFor(modelItem => item.Id))" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+           <button class="card-footer mt-auto " onclick="    f1(@Html.DisplayFor(modelItem => item.Id));alert('adicionado ao carrinho')" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
                 <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
            </button>
        }
        else
        {
            
-            <a asp-area="Identity" asp-page="/Account/Login" class="card-footer mt-auto "   style="text-decoration: none;text-align:center; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)" >    
+            <a asp-area="Identity" asp-page="/Account/Login" class="card-footer mt-auto "   style="text-decoration: none;text-align:center; padding:5px 0px ;background-color:#eb8124;margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)" >    
                 <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
             </a> 
             

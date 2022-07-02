@@ -1,21 +1,44 @@
-﻿@model LojaLegos.Models.Artigo
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@model LojaLegos.Models.Artigo
 
 @{
     ViewData["Title"] = "Details";
 }
+<script>
+
+function despinta(x) {
+  x.style.backgroundColor = "white";
+  x.style.color = "rgb(253, 120, 36)";
+  x.style.border = "5px rgb(253, 120, 36)";
+}
+
+function pinta(x) {
+  x.style.backgroundColor = "rgb(253, 120, 36) ";
+  x.style.color = "white";
+  x.style.border = "5px white";
+}
+
+function f1(elem) {
+    
+  $.post("/Artigos/CoockieCarrinhoCompras", { num : elem });
+}
 
 
-<div>
-    <div class="pai" style="padding-top:50px;">
+
+</script>
+
+
+    <div class="pai" style="padding-top:50px;margin-bottom:50px;padding-bottom:50px;">
         <div class="Imag" style="width: 55%;float:left;padding-left:50px;">
-            <img src="~/Imagens/@Html.DisplayFor(model => model.Foto)" class="card-img-top" alt="..." style="border:1px; border: 1px solid #000000" >
+            <img src="~/Imagens/@Html.DisplayFor(model => model.Foto)" class="card-img-top" alt="..." style="border:1px; border: 1px solid #000000;" >
         </div>
         <div class="detalhes" style="width: 45%; float:left; ">
             <h2 style="text-align:center;">  @Html.DisplayFor(model => model.Nome)</h2>
             <br />
             
             <div style="padding-left:150px;">
-                <div style="background-color: #fff59e; width:80%">
+                <div style= "width:80%">
                     <br />
                     <h4 style="padding-left:20px;">N.º  @Html.DisplayFor(model => model.Nr) </h4>
                     <br />
@@ -23,32 +46,38 @@
                     <br />
                     <br />
                     <h3 style="padding-left:20px;">@Html.DisplayFor(model => model.Preco)€</h3>
-                    <button style="background-color:darkgoldenrod;text-align:center;width:100%;">
-                        <h2><img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png" >  adicionar ao carrinho</h2>
-                    <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
+                    <br />
+                @if(Int64.Parse(Model.Stock) > 0)
+                {
+                    <h5 style="padding-left:20px;color:green"><img style="align;padding-bottom:4px;" src="~/Imagens/accept.png">Produto Disponivel</h5>
+                }
+                else
+                {
+                    <h5 style="padding-left:20px;">Produto indisponivel</h5>
+                }
+                
+                @if (SignInManager.IsSignedIn(User)){
+                    <button  onclick="    f1(@Html.DisplayFor(model => model.Id)); alert('adicionado ao carrinho')"  style="width:100%;border-radius: 12px; border:1px white; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+                        
+                        <h3 style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;padding-left:5px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</h3>
                     </button>
-                </div>
+                }
+                else
+                {
+                  <a style="width:100%;border:0px;border-radius: 12px; padding:5px 0px ;background-color:rgb(253, 128, 36)!important;margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+                        <h3 style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;padding-left:5px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</h3>
+                    </a>
+                     
+                }
+            </div>
                 
             </div>
 
-            <!--teste-->
-            <div class="card h-100" style="width:40%;">
-                
-                <div class="card-body" style="border: 3px;">
-                     <h5 class="card-title">@Html.DisplayFor(model => model.Nr) </h5>
-                     <h5> @Html.DisplayFor(model => model.NrPecas) </h5>
-                     <p class="card-text">@Html.DisplayFor(model => model.Preco) </p>
-        
-                </div>
-                
-                 <button class="card-footer mt-auto " style="border:0px ;padding:5px 0px ;background-color:darkgoldenrod;margin-bottom:0px;" >
-                     <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png" >  adicionar ao carrinho</p> 
+         
             
-                         <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
-                </button>
     </div>
         </div>
 
-    </div>
+ 
 
    

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Uc4/dHIkpW+ice2kdfKhwxAgGyLrnPP/jmgCvoZ/lsA=",
+  "Hash": "otWjpKwMVZ3ChEAIvPRgO+lx6kgIws3ks+DksEdMf5o=",
   "Source": "LojaLegos",
   "BasePath": "_content/LojaLegos",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\Imagens\\42004.jpg"
     },
     {
+      "Identity": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\Imagens\\accept.png",
+      "SourceId": "LojaLegos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\",
+      "BasePath": "_content/LojaLegos",
+      "RelativePath": "Imagens/accept.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\accept.png"
+    },
+    {
       "Identity": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\Imagens\\shopping-cart.png",
       "SourceId": "LojaLegos",
       "SourceType": "Discovered",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagens\\shopping-cart.png"
+    },
+    {
+      "Identity": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\Imagens\\user.png",
+      "SourceId": "LojaLegos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\",
+      "BasePath": "_content/LojaLegos",
+      "RelativePath": "Imagens/user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\user.png"
     },
     {
       "Identity": "C:\\Users\\gonca\\Source\\Repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\js\\site.js",

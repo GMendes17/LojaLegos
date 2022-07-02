@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\LojaLegos",
     "\\LojaLegos\\Views",
-    "\\LojaLegos\\Views\\Artigos"
+    "\\LojaLegos\\Views\\Armazem",
+    "\\LojaLegos\\Views\\Artigos",
+    "\\LojaLegos\\Views\\Encomendas",
+    "\\LojaLegos\\Views\\Funcionarios",
+    "\\LojaLegos\\Views\\Gestores",
+    "\\LojaLegos\\Views\\Shared"
   ],
-  "SelectedNode": "\\LojaLegos.sln",
+  "SelectedNode": "\\LojaLegos\\Views\\Artigos\\Details.cshtml",
   "PreviewInSolutionExplorer": false
 }

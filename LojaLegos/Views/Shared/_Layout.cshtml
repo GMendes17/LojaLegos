@@ -53,25 +53,33 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Funcionarios" asp-action="Index">Funcionários</a>
                             </li>
                         }
-                            <li class="nav-item me-auto" >
+                    </ul>  
+                    <ul class="navbar-nav  me-auto" >
+                        @if (User.IsInRole("Cliente"))
+                        {
+                            <li class="nav-item" >
                                 <a class="nav-link text-dark" style="float:right;" asp-area="" asp-controller="Artigos" asp-action="CarrinhoCompras"><img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png"></a>
                             </li>
-                       
-                       
-                    </ul>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="MeuPerfil"><img style="align;padding-bottom:4px;" src="~/Imagens/user.png"></a>
+                            </li>
+                        }                       
+                      </ul>  
+                    
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-        <main role="main" class="pb-3" style="width:100% ! important; " >
+        <main role="main" class="pb-3" style="width:100% ! important; margin-bottom:25px; padding-bottom:25px;" >
             @RenderBody()
         </main>
-
-    <footer class="border-top footer " style="width:100% ! important;background-color: rgb(0, 89, 183);color:white;text-align:center;margin: 0px; padding:0px; margin-top: 200px; ">
+    
+    
+    <footer class=" footer " style="width:100% ! important;background-color: rgb(0, 89, 183);color:white;text-align:center; margin-top:25px; position :absolute;">
         
             &copy; 2022 - LegoMania - Realizado por Gonçalo Mendes e Pedro Gaspar - Licenciatura Engenharia Informática - Desenvolvimento Web 
-       
+      
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
