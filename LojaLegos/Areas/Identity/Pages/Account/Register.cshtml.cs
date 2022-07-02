@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using LojaLegos.Models;
+using LojaLegos.Data;
 
 namespace LojaLegos.Areas.Identity.Pages.Account
 {
@@ -31,13 +32,14 @@ namespace LojaLegos.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _context;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, ApplicationDbContext context)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -45,6 +47,7 @@ namespace LojaLegos.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -99,6 +102,8 @@ namespace LojaLegos.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public Cliente Cliente { get; set; }
         }
 
 
@@ -125,6 +130,15 @@ namespace LojaLegos.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     await _userManager.AddToRoleAsync(user, "Cliente");
+
+                    Cliente clientes = new Cliente() { PrimeiroNome = "", Apelido = "", Morada = "", CodPostal = "", Cidade = "", País = "", Email = Input.Email, NrTelemovel = "", NrContribuinte = "" };
+
+                    if (ModelState.IsValid)
+                    {
+                        _context.Add(clientes);
+                        await _context.SaveChangesAsync();
+                    }
+
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
