@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace LojaLegos.Controllers
 {
     [Authorize]
-    [Authorize(Roles = "Gestor,Funcionario")]
+    [Authorize(Roles = "Gestor,Funcionario,Clientes")]
     public class ClientesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -55,6 +55,7 @@ namespace LojaLegos.Controllers
 
             var cliente = await _context.Clientes
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (cliente == null)
             {
                 return NotFound();

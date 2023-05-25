@@ -86,7 +86,7 @@ function f1(elem) {
 
 
 <div class="col-sm-8" id="mosaico">
-<div class="row row-cols-1 row-cols-md-4 g-4" style="padding-top: 20px ;padding-left:25px;">
+<div class="row row-cols-1 row-cols-md-4 g-4" style="padding-top: 20px ;padding-left:25px;padding-bottom: 150px; ">
 @foreach (var item in Model){
     
 
@@ -97,13 +97,13 @@ function f1(elem) {
       <div class="card-body" style="border: 3px;">
         <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nr) @Html.DisplayFor(modelItem => item.Nome)</h5>
         <img src="~/Imagens/@Html.DisplayFor(modelItem => item.Foto)" class="card-img-top" alt="...">
-        <p class="card-text">@Html.DisplayFor(modelItem => item.Detalhes) </p>
+        
         
       </div>
        </a>
       
        @if (SignInManager.IsSignedIn(User)){
-           <button class="card-footer mt-auto " onclick="    f1(@Html.DisplayFor(modelItem => item.Id));alert('adicionado ao carrinho')" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+           <button class="card-footer mt-auto " onclick= "f1(@Html.DisplayFor(modelItem => item.Id));alert('adicionado ao carrinho')" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
                 <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
            </button>
        }

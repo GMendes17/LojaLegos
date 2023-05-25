@@ -1,56 +1,78 @@
 ﻿@model LojaLegos.Models.Artigo
 
+
 @{
     ViewData["Title"] = "Index";
 }
 
 <script>
+
+function dados() { 
+    var dados;
     $(document).ready(function(){
   $.get("/Artigos/ObterDadosCookie", function(data){
     console.log(data);
+    return data
+      
   })
 })
-
-</script>
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-               
-            </th>
-            <th>
-                
-            </th>
-            <th>
-                
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-
-        <tr>
-            <td>
-                
-            </td>
-            <td>
-                
-            </td>
-            <td>
-                
-            </td>
-            <td>
-                
-            </td>
-        </tr>
 }
-    </tbody>
-</table>
-<script>
 
-</script>
+</script> 
+
+   
+
+if (cookie != null)
+{
+    // Do something with the cookie value
+    string cookieValue = cookie.Value;
+}
+
+// Alternatively, you can retrieve all cookies sent by the browser
+HttpCookieCollection cookies = Request.Cookies;
+
+foreach (string cookieName in cookies)
+{
+    HttpCookie cookie = cookies[cookieName];
+
+    // Do something with the cookie value
+    string cookieValue = cookie.Value;
+
+
+}
+
+
+<div style="width:80%;margin:auto;">
+    <h1 style="text-align:left">Carrinho de Compras</h1>
+    <table>
+        <tr>
+            <th>
+                <p>Artigo</p>
+            </th>
+            <th>
+                 <p>Quantidade</p>
+            </th>
+        </tr>
+    
+    {
+        
+    }
+        <tr>
+            <td>
+                jgfhdgsfa
+
+            </td>
+            <td>
+
+
+            </td>
+           
+
+        </tr>
+    </table>
+
+       <button  onclick="    f1(@Html.DisplayFor(model => model.Id)); alert('adicionado ao carrinho')"  style="width:100%;border-radius: 12px; border:1px white; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+                        
+            <h3 style="margin-bottom: 0px;"> Encomendar </h3>
+       </button>
+</div>

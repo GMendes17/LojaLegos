@@ -13,6 +13,7 @@ namespace LojaLegos.Controllers
     public class ArtigosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private object cookieValue;
 
         public ArtigosController(ApplicationDbContext context)
         {
@@ -41,14 +42,24 @@ namespace LojaLegos.Controllers
             }
             
         }
+
+        public async Task<JsonResult> ObterDadosCookie()
+        {
+            var cookie = HttpContext.Request.Cookies["carrinho"];
+            return Json(new { cookieValue, cookie });
+        }
+
         public async Task<IActionResult> CarrinhoCompras()
         {
-            
+
+           
             return View();
         }
+
+        //esta função recebe um valor da view e transmite apenas os artigos onde o tipo é igual ao valor recebido
         public async Task<IActionResult> Index(string searchString)
         {
-
+            
             ViewData["CurrentFilter"] = searchString;
 
             var artigos = from a in _context.Artigos

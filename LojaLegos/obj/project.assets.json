@@ -9871,19 +9871,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pedro\\.nuget\\packages\\": {}
+    "C:\\Users\\gonca\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+      "projectUniqueName": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\LojaLegos.csproj",
       "projectName": "LojaLegos",
-      "projectPath": "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
-      "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\Desktop\\LEI\\2ano\\2sem\\DW\\LojaLegos\\LojaLegos\\obj\\",
+      "projectPath": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\LojaLegos.csproj",
+      "packagesPath": "C:\\Users\\gonca\\.nuget\\packages\\",
+      "outputPath": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gonca\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9954,7 +9954,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

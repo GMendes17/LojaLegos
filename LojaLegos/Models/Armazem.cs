@@ -13,6 +13,9 @@ namespace LojaLegos.Models
         [Key]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [StringLength(100, ErrorMessage = "O {0} não pode ter mais do que {1} carateres.")]
+        [RegularExpression("[A-ZÂÓÍa-záéíóúàèìòùâêîôûãõäëïöüñç '-]+", ErrorMessage = "Só pode escrever letras no {0}")]
         public string Local { get; set; }
 
         [ForeignKey(nameof(Responsavel))]
