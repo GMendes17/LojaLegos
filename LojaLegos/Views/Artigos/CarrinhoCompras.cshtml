@@ -1,78 +1,125 @@
-﻿@model LojaLegos.Models.Artigo
-
+﻿@model List<LojaLegos.Models.Artigo>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Carrinho de Compras";
 }
 
-<script>
-
-function dados() { 
-    var dados;
-    $(document).ready(function(){
-  $.get("/Artigos/ObterDadosCookie", function(data){
-    console.log(data);
-    return data
-      
-  })
-})
-}
-
-</script> 
-
-   
-
-if (cookie != null)
-{
-    // Do something with the cookie value
-    string cookieValue = cookie.Value;
-}
-
-// Alternatively, you can retrieve all cookies sent by the browser
-HttpCookieCollection cookies = Request.Cookies;
-
-foreach (string cookieName in cookies)
-{
-    HttpCookie cookie = cookies[cookieName];
-
-    // Do something with the cookie value
-    string cookieValue = cookie.Value;
-
-
-}
-
-
-<div style="width:80%;margin:auto;">
-    <h1 style="text-align:left">Carrinho de Compras</h1>
+<div style="width: 80%; margin: auto;">
+    <h1 style="text-align: left;">Carrinho de Compras</h1>
     <table>
         <tr>
             <th>
                 <p>Artigo</p>
             </th>
             <th>
-                 <p>Quantidade</p>
+                <p>Preço</p>
+            </th>
+            <th>
+                <p>Quantidade</p>
+            </th>
+            <th>
+                <p>Remover</p>
             </th>
         </tr>
-    
-    {
-        
-    }
-        <tr>
-            <td>
-                jgfhdgsfa
 
-            </td>
-            <td>
+        @if (Model != null && Model.Count > 0)
+        {
+            decimal precoTotal = 0;
+            for (var i = 0; i < Model.Count; i++)
+            {
+                var artigo = Model[i];
+                var index = i;
 
+                <tr id="linha-@index">
+                    <td>
+                        <img src="~/Imagens/@Html.DisplayFor(modelItem => artigo.Foto)" alt="@artigo.Nome" style="width: 100px; height: 100px;" />
+                        @artigo.Nome
+                    </td>
+                    <td>
+                        @artigo.Preco.ToString("C2")
+                    </td>
+                    <td>
+                        <input type="number" id="Quantidade-@index" name="Quantidade" min="1" value="1" />
+                    </td>
+                    <td>
+                        <button onclick="removerArtigo(@index, @artigo.Id)">Remover</button>
+                    </td>
+                </tr>
 
-            </td>
-           
-
-        </tr>
+                precoTotal += artigo.Preco;
+            }
+            <tr>
+                <td colspan="4">
+                    <p>Preço Total: <span id="precoTotal">@precoTotal.ToString("C2")</span></p>
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">
+                    <p>Não há artigos no carrinho.</p>
+                </td>
+            </tr>
+        }
     </table>
 
-       <button  onclick="    f1(@Html.DisplayFor(model => model.Id)); alert('adicionado ao carrinho')"  style="width:100%;border-radius: 12px; border:1px white; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
-                        
-            <h3 style="margin-bottom: 0px;"> Encomendar </h3>
-       </button>
+    <button onclick="encomendar()" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+        <h3 style="margin-bottom: 0px;">Encomendar</h3>
+    </button>
 </div>
+
+<script>
+    function removerArtigo(index, artigoId) {
+        var linha = document.getElementById("linha-" + index);
+        linha.parentNode.removeChild(linha);
+        atualizarCookie();
+        atualizarPrecoTotal();
+    }
+
+    function atualizarCookie() {
+        var numeros = [];
+        var rows = document.getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+            var id = rows[i].id;
+            if (id.startsWith("linha-")) {
+                var idSplit = id.split("-");
+                var artigoId = idSplit[idSplit.length - 1];
+                var quantidadeInput = document.getElementById("Quantidade-" + artigoId);
+                var quantidade = quantidadeInput ? quantidadeInput.value : 1;
+                if (quantidade > 0) {
+                    numeros.push(artigoId);
+                }
+            }
+        }
+
+        if (numeros.length > 0) {
+            var cookieValue = JSON.stringify(numeros);
+            document.cookie = "carrinho=" + encodeURIComponent(cookieValue) + "; path=/";
+        } else {
+            document.cookie = "carrinho= ; path=/"; // Define o cookie como um espaço em branco
+        }
+    }
+
+    function atualizarPrecoTotal() {
+        var precoTotal = 0;
+        var rows = document.getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+            var id = rows[i].id;
+            if (id.startsWith("linha-")) {
+                var idSplit = id.split("-");
+                var artigoId = idSplit[idSplit.length - 1];
+                var quantidadeInput = document.getElementById("Quantidade-" + artigoId);
+                var quantidade = quantidadeInput ? quantidadeInput.value : 1;
+                var precoInput = document.getElementById("Preco-" + artigoId);
+                var preco = precoInput ? precoInput.value : 0;
+                precoTotal += quantidade * preco;
+            }
+        }
+        document.getElementById("precoTotal").textContent = precoTotal.toLocaleString("pt-PT", { style: "currency", currency: "EUR" });
+    }
+
+</script>
+
+
+
