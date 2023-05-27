@@ -6,63 +6,56 @@
 
 <div style="width: 80%; margin: auto;">
     <h1 style="text-align: left;">Carrinho de Compras</h1>
-    <table>
+   <table>
+    <tr>
+        <th>Artigo</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Remover</th>
+    </tr>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        decimal precoTotal = 0;
+        for (var i = 0; i < Model.Count; i++)
+        {
+            var artigo = Model[i];
+            var index = i;
+
+            <tr id="linha-@artigo.Id" data-artigo-id="@artigo.Id">
+                <td>
+                    <img src="~/Imagens/@Html.DisplayFor(modelItem => artigo.Foto)" alt="@artigo.Nome" style="width: 100px; height: 100px;" />
+                    @artigo.Nome
+                </td>
+                <td class="preco">
+                    @artigo.Preco.ToString("C2")
+                </td>
+                <td>
+                    <input type="number" class="quantidade" id="Quantidade-@artigo.Id" name="Quantidade" min="1" value="1" onchange="atualizarPrecoTotal()" />
+                </td>
+                <td>
+                    <button onclick="removerArtigo('@artigo.Id')">Remover</button>
+                </td>
+            </tr>
+
+            precoTotal += artigo.Preco;
+        }
         <tr>
-            <th>
-                <p>Artigo</p>
-            </th>
-            <th>
-                <p>Preço</p>
-            </th>
-            <th>
-                <p>Quantidade</p>
-            </th>
-            <th>
-                <p>Remover</p>
-            </th>
+            <td colspan="4">
+                <p>Preço Total: <span id="precoTotal">@precoTotal.ToString("C2")</span></p>
+            </td>
         </tr>
+    }
+    else
+    {
+        <tr>
+            <td colspan="4">
+                <p>Não há artigos no carrinho.</p>
+            </td>
+        </tr>
+    }
+</table>
 
-        @if (Model != null && Model.Count > 0)
-        {
-            decimal precoTotal = 0;
-            for (var i = 0; i < Model.Count; i++)
-            {
-                var artigo = Model[i];
-                var index = i;
-
-                <tr id="linha-@index">
-                    <td>
-                        <img src="~/Imagens/@Html.DisplayFor(modelItem => artigo.Foto)" alt="@artigo.Nome" style="width: 100px; height: 100px;" />
-                        @artigo.Nome
-                    </td>
-                    <td>
-                        <span class="preco">@artigo.Preco.ToString("C2")</span>
-                    </td>
-                    <td>
-                        <input type="number" class="quantidade" min="1" value="1" onchange="atualizarPrecoTotal()" />
-                    </td>
-                    <td>
-                        <button onclick="removerArtigo('@index', '@artigo.Id')">Remover</button>
-                    </td>
-                </tr>
-
-                precoTotal += artigo.Preco;
-            }
-            <tr>
-                <td colspan="4">
-                    <p>Preço Total: <span id="precoTotal">@precoTotal.ToString("C2")</span></p>
-                </td>
-            </tr>
-        }
-        else
-        {
-            <tr>
-                <td colspan="4">
-                    <p>Não há artigos no carrinho.</p>
-                </td>
-            </tr>
-        }
-    </table>
 
     <button onclick="encomendar()" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
         <h3 style="margin-bottom: 0px;">Encomendar</h3>
@@ -70,36 +63,51 @@
 </div>
 
 <script>
-    function removerArtigo(index, artigoId) {
-        var linha = document.getElementById("linha-" + index);
-        linha.parentNode.removeChild(linha);
-        atualizarCookie();
-        atualizarPrecoTotal();
-    }
-
-    function atualizarCookie() {
-        var numeros = [];
-        var rows = document.getElementsByTagName("tr");
-        for (var i = 0; i < rows.length; i++) {
-            var id = rows[i].id;
-            if (id.startsWith("linha-")) {
-                var idSplit = id.split("-");
-                var artigoId = idSplit[idSplit.length - 1];
-                var quantidadeInput = document.querySelector("#linha-" + artigoId + " .quantidade");
-                var quantidade = quantidadeInput ? quantidadeInput.value : 1;
-                if (quantidade > 0) {
-                    numeros.push(artigoId);
-                }
+    function obterValorCookie(nome) {
+        var cookies = document.cookie.split("; ");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var cookieSplit = cookie.split("=");
+            var cookieNome = decodeURIComponent(cookieSplit[0]);
+            var cookieValor = decodeURIComponent(cookieSplit[1]);
+            if (cookieNome === nome) {
+                return cookieValor;
             }
         }
+        return "";
+    }
 
-        if (numeros.length > 0) {
-            var cookieValue = JSON.stringify(numeros);
-            document.cookie = "carrinho=" + encodeURIComponent(cookieValue) + "; path=/";
-        } else {
-            document.cookie = "carrinho= ; path=/"; // Define o cookie como um espaço em branco
+   function removerArtigo(artigoId) {
+    var linha = document.getElementById("linha-" + artigoId);
+    linha.parentNode.removeChild(linha);
+    atualizarCookie();
+    atualizarPrecoTotal();
+    verificarCarrinhoVazio();
+}
+
+   function atualizarCookie() {
+    var ids = [];
+    var rows = document.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) {
+        var linha = rows[i];
+        var artigoId = linha.getAttribute("data-artigo-id");
+        if (artigoId) {
+            var quantidadeInput = document.getElementById("Quantidade-" + artigoId);
+            var quantidade = quantidadeInput ? quantidadeInput.value : 1;
+            if (quantidade > 0) {
+                ids.push(artigoId);
+            }
         }
     }
+
+    var cookieValue = ids.length > 0 ? ids.join("-") + "-" : "";
+    if (cookieValue) {
+        document.cookie = "carrinho=" + cookieValue + "; path=/";
+    } else {
+        document.cookie = "carrinho=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+    location.reload(); // Recarrega a página para atualizar o carrinho e o preço total
+}
 
     function atualizarPrecoTotal() {
         var precoTotal = 0;
@@ -118,7 +126,46 @@
         }
         document.getElementById("precoTotal").textContent = precoTotal.toLocaleString("pt-PT", { style: "currency", currency: "EUR" });
     }
+
+    function verificarCarrinhoVazio() {
+        var rows = document.getElementsByTagName("tr");
+        var carrinhoVazio = true;
+        for (var i = 0; i < rows.length; i++) {
+            var id = rows[i].id;
+            if (id.startsWith("linha-")) {
+                carrinhoVazio = false;
+                break;
+            }
+        }
+
+        var precoTotalElement = document.getElementById("precoTotal");
+        var mensagemCarrinhoVazioElement = document.getElementById("mensagemCarrinhoVazio");
+        if (carrinhoVazio) {
+            if (precoTotalElement) {
+                precoTotalElement.textContent = "";
+            }
+            if (mensagemCarrinhoVazioElement) {
+                mensagemCarrinhoVazioElement.style.display = "block";
+            }
+        } else {
+            if (mensagemCarrinhoVazioElement) {
+                mensagemCarrinhoVazioElement.style.display = "none";
+            }
+        }
+    }
+
+    function obterArtigosCarrinho() {
+    var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)carrinho\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    if (cookieValue) {
+        cookieValue = decodeURIComponent(cookieValue);
+        var numeros = JSON.parse(cookieValue);
+        return numeros;
+    }
+    return [];
+}
 </script>
+
+
 
 
 
