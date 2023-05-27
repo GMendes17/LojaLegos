@@ -36,13 +36,13 @@
                         @artigo.Nome
                     </td>
                     <td>
-                        @artigo.Preco.ToString("C2")
+                        <span class="preco">@artigo.Preco.ToString("C2")</span>
                     </td>
                     <td>
-                        <input type="number" id="Quantidade-@index" name="Quantidade" min="1" value="1" />
+                        <input type="number" class="quantidade" min="1" value="1" onchange="atualizarPrecoTotal()" />
                     </td>
                     <td>
-                        <button onclick="removerArtigo(@index, @artigo.Id)">Remover</button>
+                        <button onclick="removerArtigo('@index', '@artigo.Id')">Remover</button>
                     </td>
                 </tr>
 
@@ -85,7 +85,7 @@
             if (id.startsWith("linha-")) {
                 var idSplit = id.split("-");
                 var artigoId = idSplit[idSplit.length - 1];
-                var quantidadeInput = document.getElementById("Quantidade-" + artigoId);
+                var quantidadeInput = document.querySelector("#linha-" + artigoId + " .quantidade");
                 var quantidade = quantidadeInput ? quantidadeInput.value : 1;
                 if (quantidade > 0) {
                     numeros.push(artigoId);
@@ -109,16 +109,15 @@
             if (id.startsWith("linha-")) {
                 var idSplit = id.split("-");
                 var artigoId = idSplit[idSplit.length - 1];
-                var quantidadeInput = document.getElementById("Quantidade-" + artigoId);
+                var quantidadeInput = document.querySelector("#linha-" + artigoId + " .quantidade");
                 var quantidade = quantidadeInput ? quantidadeInput.value : 1;
-                var precoInput = document.getElementById("Preco-" + artigoId);
-                var preco = precoInput ? precoInput.value : 0;
+                var precoValue = document.querySelector("#linha-" + artigoId + " .preco").textContent;
+                var preco = parseFloat(precoValue.replace(',', '.').replace(/[^\d.-]/g, ''));
                 precoTotal += quantidade * preco;
             }
         }
         document.getElementById("precoTotal").textContent = precoTotal.toLocaleString("pt-PT", { style: "currency", currency: "EUR" });
     }
-
 </script>
 
 
