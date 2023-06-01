@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ddhLR/BpQQNvO2cu1oLtbCp/qM0kWla9tXhJw88v8AQ=",
+  "Hash": "TSK4b62E1/yrxcCbKQu3msi4bVEfMtHtM4aZ59M7Xe0=",
   "Source": "LojaLegos",
   "BasePath": "_content/LojaLegos",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagens\\accept.png"
+    },
+    {
+      "Identity": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\wwwroot\\Imagens\\cruz.png",
+      "SourceId": "LojaLegos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\wwwroot\\",
+      "BasePath": "_content/LojaLegos",
+      "RelativePath": "Imagens/cruz.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\cruz.png"
     },
     {
       "Identity": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\wwwroot\\Imagens\\shopping-cart.png",
