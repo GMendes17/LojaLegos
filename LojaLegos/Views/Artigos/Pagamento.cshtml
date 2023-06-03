@@ -1,0 +1,15 @@
+﻿@model LojaLegos.Models.Pagamento
+
+@{
+    ViewData["Title"] = "Pagamento";
+}
+
+<h1>Pagamento</h1>
+
+<p>Total a pagar: @Model.Total</p>
+
+<form method="post" action="/Artigos/Pagar">
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-primary">Pagar</button>
+</form>

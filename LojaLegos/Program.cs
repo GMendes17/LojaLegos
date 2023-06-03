@@ -37,6 +37,15 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapControllers();
+
+app.MapControllerRoute(
+    name: "CarrinhoCompras_Pagamento",
+    pattern: "Artigos/CarrinhoCompras/Pagamento",
+    defaults: new { controller = "EncomendasController", action = "Pagamento" }
+);
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

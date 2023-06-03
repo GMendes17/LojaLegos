@@ -94,17 +94,6 @@ namespace LojaLegos.Controllers
             return View(new List<Artigo>());
         }
 
-        
-       
-       
-
-
-
-
-
-
-
-
         public async Task<IActionResult> Index(string searchString)
         {
             ViewData["CurrentFilter"] = searchString;
@@ -241,6 +230,14 @@ namespace LojaLegos.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Pagamento()
+        {
+    
+            return RedirectToAction("Pagamento", "EncomendasController");
         }
 
         private bool ArtigoExists(int id)
