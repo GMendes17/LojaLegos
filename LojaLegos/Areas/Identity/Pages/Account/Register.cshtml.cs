@@ -116,18 +116,27 @@ namespace LojaLegos.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+           // ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+           //se os dados definidos forem correto
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
+                //efetiva criação do USER
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
+                //se houver sucesso na criação do user
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    //*******************************************
+                    //adicionar os dados dos clientes à BD
+                    //***********************************
 
                     await _userManager.AddToRoleAsync(user, "Cliente");
 

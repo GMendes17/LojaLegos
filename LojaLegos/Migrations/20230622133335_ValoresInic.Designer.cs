@@ -4,6 +4,7 @@ using LojaLegos.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaLegos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230622133335_ValoresInic")]
+    partial class ValoresInic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -339,21 +341,21 @@ namespace LojaLegos.Migrations
                         new
                         {
                             Id = "c",
-                            ConcurrencyStamp = "2f9b3d59-28b1-4bb4-803b-f3ac179a790e",
+                            ConcurrencyStamp = "3120b8a4-cb6c-4182-8926-2cf3fddf910c",
                             Name = "Cliente",
                             NormalizedName = "CLIENTE"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "d3ec206e-a6f0-4342-8c99-f68f8f9497e8",
+                            ConcurrencyStamp = "b5438a8e-4bb6-4b2d-ae5a-cf269bc4106d",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         },
                         new
                         {
                             Id = "f",
-                            ConcurrencyStamp = "fc602494-f73d-4b05-9ff7-d8406ce570fd",
+                            ConcurrencyStamp = "7ccfd967-6ef9-48ee-8f58-766df11bdca3",
                             Name = "Funcionario",
                             NormalizedName = "FUNCIONARIO"
                         });

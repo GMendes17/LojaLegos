@@ -41,6 +41,8 @@
             </tr>
 
             precoTotal += artigo.Preco;
+            TempData["precoTotal"] = precoTotal.ToString();
+            ViewBag.precoTotal = precoTotal.ToString();
         }
         <tr>
             <td colspan="4">

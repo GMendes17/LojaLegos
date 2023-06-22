@@ -12,13 +12,7 @@ namespace LojaLegos.Data
         {
         }
 
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Armazem> Armazem { get; set; }
-        public DbSet<Artigo> Artigos { get; set; }
-        public DbSet<Encomenda> Encomendas { get; set; }
-        public DbSet<Funcs> Funcionarios { get; set; }
-        public DbSet<Gestor> Gestor { get; set; }
-        public DbSet<ArtigoEncomenda> ArtigoEncomendas { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +35,12 @@ namespace LojaLegos.Data
             modelBuilder.Entity<Funcs>().HasData(
                 new Funcs { Id = 1, Nome = "Beatriz", NrTelemovel = "942942942", Email = "beatrizpatita@blabla.com", Cargo = "Funcionário", ChefeFK = 1 }
             );
+            modelBuilder.Entity<Artigo>().HasData(
+                 new Artigo { Id = 1, Nr = "42004", Tipo = "Technic", Nome = "Mini blackhoe Loader", Preco = (Decimal)1222.00, Foto = "42004.jpg", NrPecas = "123", Detalhes = "gosfdnaiudsf", Stock = "5", ArmazemFK = 1 }
+                );
+            modelBuilder.Entity<Armazem>().HasData(
+                new Armazem { Id =1 ,Local = "Tomar" , ResponsavelFK =1}
+                );
 
             modelBuilder.Entity<ArtigoEncomenda>()
                  .HasKey(ae => new { ae.ArtigoId, ae.EncomendaId });
@@ -55,5 +55,15 @@ namespace LojaLegos.Data
                 .WithMany(e => e.ArtigoEncomendas)
                 .HasForeignKey(ae => ae.EncomendaId);
         }
+
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Armazem> Armazem { get; set; }
+        public DbSet<Artigo> Artigos { get; set; }
+        public DbSet<Encomenda> Encomendas { get; set; }
+        public DbSet<Funcs> Funcionarios { get; set; }
+        public DbSet<Gestor> Gestor { get; set; }
+        public DbSet<ArtigoEncomenda> ArtigoEncomendas { get; set; }
+
+
     }
 }

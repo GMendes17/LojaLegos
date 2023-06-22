@@ -61,11 +61,23 @@ namespace LojaLegos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda)
         {
+            var utilizador = _context.Clientes.FirstOrDefault(u => u.Email == User.Identity.Name);
+            encomenda.ClienteFK = utilizador.Id;
+            
+            encomenda.Data = DateTime.Now;
+            System.Diagnostics.Debug.WriteLine(encomenda.ClienteFK);
+            
+            System.Diagnostics.Debug.WriteLine(encomenda.Total);
+            System.Diagnostics.Debug.WriteLine(encomenda.Data);
             if (ModelState.IsValid)
             {
                 _context.Add(encomenda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("tou fdd");
             }
             ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", encomenda.ClienteFK);
             return View(encomenda);
