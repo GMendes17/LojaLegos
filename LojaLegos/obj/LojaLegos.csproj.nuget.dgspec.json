@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\LojaLegos.csproj": {}
+    "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {}
   },
   "projects": {
-    "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\LojaLegos.csproj": {
+    "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\LojaLegos.csproj",
+        "projectUniqueName": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
         "projectName": "LojaLegos",
-        "projectPath": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\LojaLegos.csproj",
+        "projectPath": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
         "packagesPath": "C:\\Users\\gonca\\.nuget\\packages\\",
-        "outputPath": "C:\\Escola\\2ºano\\S2\\DesenvolvimentoWeb\\MCV_23042_23038\\LojaLegos\\obj\\",
+        "outputPath": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gonca\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,7 +74,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -85,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

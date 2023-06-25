@@ -116,6 +116,19 @@ namespace LojaLegos.Migrations
                             Preco = 1222m,
                             Stock = "5",
                             Tipo = "Technic"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ArmazemFK = 1,
+                            Detalhes = "não voa",
+                            Foto = "42057.jpg",
+                            Nome = "Ultralight Helicopter",
+                            Nr = "42057",
+                            NrPecas = "125453",
+                            Preco = 100m,
+                            Stock = "99",
+                            Tipo = "Technic"
                         });
                 });
 
@@ -130,11 +143,30 @@ namespace LojaLegos.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
                     b.HasKey("ArtigoId", "EncomendaId");
 
                     b.HasIndex("EncomendaId");
 
                     b.ToTable("ArtigoEncomendas");
+
+                    b.HasData(
+                        new
+                        {
+                            ArtigoId = 1,
+                            EncomendaId = 1,
+                            Id = 1,
+                            Quantidade = 23
+                        },
+                        new
+                        {
+                            ArtigoId = 2,
+                            EncomendaId = 1,
+                            Id = 2,
+                            Quantidade = 26
+                        });
                 });
 
             modelBuilder.Entity("LojaLegos.Models.Cliente", b =>
@@ -183,6 +215,9 @@ namespace LojaLegos.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
@@ -199,7 +234,8 @@ namespace LojaLegos.Migrations
                             NrContribuinte = "412414141",
                             NrTelemovel = "941941941",
                             País = "Portugal",
-                            PrimeiroNome = "Gonçalo"
+                            PrimeiroNome = "Gonçalo",
+                            UserId = "1"
                         });
                 });
 
@@ -227,6 +263,15 @@ namespace LojaLegos.Migrations
                     b.HasIndex("ClienteFK");
 
                     b.ToTable("Encomendas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClienteFK = 1,
+                            Data = new DateTime(2023, 6, 25, 13, 58, 56, 0, DateTimeKind.Unspecified),
+                            Total = "3000"
+                        });
                 });
 
             modelBuilder.Entity("LojaLegos.Models.Funcs", b =>
@@ -339,21 +384,21 @@ namespace LojaLegos.Migrations
                         new
                         {
                             Id = "c",
-                            ConcurrencyStamp = "2f9b3d59-28b1-4bb4-803b-f3ac179a790e",
+                            ConcurrencyStamp = "5237f2a8-62f5-433a-89e1-b0cdc886618a",
                             Name = "Cliente",
                             NormalizedName = "CLIENTE"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "d3ec206e-a6f0-4342-8c99-f68f8f9497e8",
+                            ConcurrencyStamp = "46b17418-a11f-4559-b0c9-e2f635f48ba8",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         },
                         new
                         {
                             Id = "f",
-                            ConcurrencyStamp = "fc602494-f73d-4b05-9ff7-d8406ce570fd",
+                            ConcurrencyStamp = "fc53266f-18bb-4e38-93a3-5bcf5a6d6be4",
                             Name = "Funcionario",
                             NormalizedName = "FUNCIONARIO"
                         });

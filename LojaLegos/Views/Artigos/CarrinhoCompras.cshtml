@@ -60,15 +60,36 @@
     }
 </table>
 
-     
-    <form id="formPagamento" method="post" action="@Url.Action("Pagamento", "Encomendas")">
-        <button type="submit" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
-             <h3 style="margin-bottom: 0px;">Encomendar</h3>
+   <form id="formPagamento" method="post" action="@Url.Action("Create", "Encomendas")" onsubmit="obterArtigosQuantidades()">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" name="artigosQuantidades" id="artigosQuantidades" value="" />
+
+        <button type="submit" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;">
+            <h3 style="margin-bottom: 0px;">Encomendar</h3>
         </button>
     </form>
 </div>
 
 <script>
+   function obterArtigosQuantidades() {
+    var linhas = document.querySelectorAll("[data-artigo-id]");
+
+    var quantidades = Array.from(linhas).map(function (linha) {
+        var artigoId = linha.getAttribute("data-artigo-id");
+        var quantidadeInput = linha.querySelector(".quantidade");
+        var quantidade = quantidadeInput ? quantidadeInput.value : 1;
+        return artigoId + ";" + quantidade;
+    });
+
+    var artigosQuantidades = quantidades.join("|");
+
+    document.getElementById("artigosQuantidades").value = artigosQuantidades;
+    alert(artigosQuantidades)
+  
+    return true; // Permitir que o formulário seja enviado
+}
+
     function obterValorCookie(nome) {
         var cookies = document.cookie.split("; ");
         for (var i = 0; i < cookies.length; i++) {
@@ -80,15 +101,18 @@
                 return cookieValor;
             }
         }
+        
         return "";
     }
 
    function removerArtigo(artigoId) {
+    
     var linha = document.getElementById("linha-" + artigoId);
     linha.parentNode.removeChild(linha);
     atualizarCookie();
     atualizarPrecoTotal();
     verificarCarrinhoVazio();
+    
 }
 
    function atualizarCookie() {

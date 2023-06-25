@@ -17,6 +17,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20230622133335_ValoresInic.cs" />
     <Compile Remove="Migrations\20230622133335_ValoresInic.Designer.cs" />
+    <Compile Remove="Migrations\20230625131107_NewDataBase.cs" />
+    <Compile Remove="Migrations\20230625131107_NewDataBase.Designer.cs" />
+    <Compile Remove="Migrations\20230625141418_chaveLigaçãoBd.cs" />
+    <Compile Remove="Migrations\20230625141418_chaveLigaçãoBd.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

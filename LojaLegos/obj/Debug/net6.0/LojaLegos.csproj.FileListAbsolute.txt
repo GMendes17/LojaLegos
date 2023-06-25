@@ -543,3 +543,12 @@ C:\Escola\2ºano\S2\DesenvolvimentoWeb\MCV_23042_23038\LojaLegos\bin\Debug\net6.
 C:\Escola\2ºano\S2\DesenvolvimentoWeb\MCV_23042_23038\LojaLegos\bin\Debug\net6.0\Microsoft.Build.Framework.dll
 C:\Escola\2ºano\S2\DesenvolvimentoWeb\MCV_23042_23038\LojaLegos\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
 C:\Escola\2ºano\S2\DesenvolvimentoWeb\MCV_23042_23038\LojaLegos\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.csproj.AssemblyReference.cache
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.AssemblyInfoInputs.cache
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.AssemblyInfo.cs
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.csproj.CoreCompileInputs.cache
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.RazorAssemblyInfo.cache
+C:\Users\gonca\Desktop\LojaLegos\LojaLegos\obj\Debug\net6.0\LojaLegos.RazorAssemblyInfo.cs

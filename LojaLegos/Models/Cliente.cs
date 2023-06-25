@@ -48,6 +48,18 @@ namespace LojaLegos.Models
         [RegularExpression("[123578][0-9]{8}", ErrorMessage = "O {0} deve começar por 1,2,3,5,7,8 seguido de 8 digitos numéricos.")]
         public string NrContribuinte {get; set; }
 
+
+        // *************************************************
+        /// <summary>
+        /// Chave de ligação entre a base de dados da autenticação
+        /// e a base de dados da Loja
+        /// </summary>
+        public string UserId { get; set; }
+
+
+
+
+
         public ICollection<Encomenda> Encomendas { get; set; }
 
     }

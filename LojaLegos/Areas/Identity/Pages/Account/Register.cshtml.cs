@@ -140,12 +140,19 @@ namespace LojaLegos.Areas.Identity.Pages.Account
 
                     await _userManager.AddToRoleAsync(user, "Cliente");
 
-                    Cliente clientes = new Cliente() { PrimeiroNome = "", Apelido = "", Morada = "", CodPostal = "", Cidade = "", País = "", Email = Input.Email, NrTelemovel = "", NrContribuinte = "" };
-
-                    if (ModelState.IsValid)
+                    Input.Cliente.Email = Input.Email;
+                    Input.Cliente.UserId = user.Id;
+                    
+                    try
                     {
-                        _context.Add(clientes);
+                        _context.Add(Input.Cliente);
                         await _context.SaveChangesAsync();
+                    }
+                    catch (Exception)
+                    {
+                        // falta fazer o tratamento da exceção
+                        // se houver erro, devemos eliminar o novo USER, por exemplo
+                        throw;
                     }
 
 

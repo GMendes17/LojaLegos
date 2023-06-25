@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LojaLegos.Data;
 using LojaLegos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaLegos.Controllers
 {
@@ -47,41 +48,70 @@ namespace LojaLegos.Controllers
             return View(encomenda);
         }
 
-        // GET: Encomendas/Create
-        public IActionResult Create()
-        {
-            ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id");
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", "ClienteFK");
+           
+        //    return View();
+        //}
 
-        // POST: Encomendas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // GET: Encomendas/Create
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda)
+        public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda, string artigosQuantidades)
         {
-            var utilizador = _context.Clientes.FirstOrDefault(u => u.Email == User.Identity.Name);
+            var utilizador = await _context.Clientes.FirstOrDefaultAsync(u => u.Email == User.Identity.Name);
+            if (utilizador == null)
+            {
+                // Lidar com o caso em que o utilizador não foi encontrado
+                return NotFound();
+            }
+
             encomenda.ClienteFK = utilizador.Id;
-            
             encomenda.Data = DateTime.Now;
-            System.Diagnostics.Debug.WriteLine(encomenda.ClienteFK);
-            
-            System.Diagnostics.Debug.WriteLine(encomenda.Total);
-            System.Diagnostics.Debug.WriteLine(encomenda.Data);
+
             if (ModelState.IsValid)
             {
                 _context.Add(encomenda);
                 await _context.SaveChangesAsync();
+
+                // Obter o ID da encomenda recém-criada
+                var encomendaId = encomenda.Id;
+
+                // Processar a string artigosQuantidades e criar as entradas na tabela EncomendasArtigos
+                
+                Console.WriteLine("artigosQuantidades:", artigosQuantidades);
+
+                if (!string.IsNullOrEmpty(artigosQuantidades))
+                {
+                    string[] artigosQuantidadesArray = artigosQuantidades.Split('/');
+
+                    foreach (var item in artigosQuantidadesArray)
+                    {
+                        var artigoQuantidade = item.Split(';');
+                        var artigoId = artigoQuantidade[0];
+                        var quantidade = int.Parse(artigoQuantidade[1]);
+
+                        var encomendaArtigo = new ArtigoEncomenda
+                        {
+                            EncomendaId = encomendaId,
+                            ArtigoId = int.Parse(artigoId),
+                            Quantidade = quantidade
+                        };
+
+                        _context.ArtigoEncomendas.Add(encomendaArtigo);
+                    }
+
+                    await _context.SaveChangesAsync();
+                }
+
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("tou fdd");
-            }
+
             ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", encomenda.ClienteFK);
             return View(encomenda);
         }
+
 
         // GET: Encomendas/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -175,62 +205,7 @@ namespace LojaLegos.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Pagar()
-        {
-            var carrinho = HttpContext.Request.Cookies["Carrinho"];
 
-            if (!string.IsNullOrEmpty(carrinho))
-            {
-                var encomenda = new Encomenda
-                {
-                    Total = ObterValorTotalEncomenda().ToString(),
-                    Data = DateTime.Now
-                };
-
-                var clienteId = ((System.Security.Claims.ClaimsIdentity)User.Identity).FindFirst("Id")?.Value;
-                var cliente = await _context.Clientes.SingleOrDefaultAsync(c => c.Id == int.Parse(clienteId));
-
-                encomenda.ClienteFK = cliente.Id;
-                _context.Encomendas.Add(encomenda);
-                await _context.SaveChangesAsync();
-
-                var itens = carrinho.Split('-');
-                foreach (var item in itens)
-                {
-                    if (!string.IsNullOrEmpty(item))
-                    {
-                        var artigoEncomenda = new ArtigoEncomenda
-                        {
-                            ArtigoId = int.Parse(item),
-                            EncomendaId = encomenda.Id
-                        };
-                        _context.ArtigoEncomendas.Add(artigoEncomenda);
-                    }
-                }
-
-                await _context.SaveChangesAsync();
-
-                HttpContext.Response.Cookies.Delete("Carrinho");
-
-                // Adicione a mensagem de pagamento realizado com sucesso na ViewBag
-                ViewBag.MensagemPagamento = "O pagamento foi realizado com sucesso!";
-                return RedirectToAction("Index", "Home");
-            }
-
-            return RedirectToAction("CarrinhoVazio", "Artigos");
-        }
-
-        public IActionResult Pagamento()
-        {
-            // Lógica para a página de pagamento
-            return View();
-        }
-        private decimal ObterValorTotalEncomenda()
-        {
-            // Lógica para calcular o valor total da encomenda
-
-            return 0; // Valor total fictício para exemplo
-        }
 
         private bool EncomendaExists(int id)
         {
