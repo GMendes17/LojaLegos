@@ -1,18 +1,20 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Registar";
+    ViewData["Title"] = "Registar na LojaLegos";
 }
 
-<h1>@ViewData["Title"]</h1>
-<h2>Adicionar um novo utilizador/criador.</h2>
+<h1 style="width:75% ; margin: auto;text-align:center;">@ViewData["Title"]</h1>
+<h2></h2>
+
+<div style="width:75% ; margin: auto;">
 
 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
     <input asp-for="Input.Cliente.Email" value="a@a.aa" type="hidden" />
 
     <div class="row">
-        <hr />
-        <div class="col-md-6">
+        <div class="col-md-12">
+            <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
@@ -29,72 +31,64 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-
         </div>
-        <div class="col-md-6">
-            @* recolher os dados do CRIADOR *@
+    </div>
 
+    <div class="row">
+        <div class="col-md-12">
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.PrimeiroNome" class="form-control" />
-                <label asp-for="Input.Cliente.PrimeiroNome"></label>
+                    <input asp-for="Input.Cliente.PrimeiroNome" class="form-control" aria-required="true" placeholder="Nome" />
+                <label asp-for="Input.Cliente.PrimeiroNome">Nome Próprio</label>
                 <span asp-validation-for="Input.Cliente.PrimeiroNome" class="text-danger"></span>
             </div>
-
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.Apelido" class="form-control" />
-                <label asp-for="Input.Cliente.Apelido"></label>
+                    <input asp-for="Input.Cliente.Apelido" class="form-control" aria-required="true" placeholder="Apelido" />
+                <label asp-for="Input.Cliente.Apelido">Apelido</label>
                 <span asp-validation-for="Input.Cliente.Apelido" class="text-danger"></span>
             </div>
-
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.Morada" class="form-control" />
-                <label asp-for="Input.Cliente.Morada "></label>
+                    <input asp-for="Input.Cliente.Morada" class="form-control" aria-required="true" placeholder="Morada" />
+                <label asp-for="Input.Cliente.Morada">Morada</label>
                 <span asp-validation-for="Input.Cliente.Morada" class="text-danger"></span>
             </div>
-
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.CodPostal" class="form-control" />
-                <label asp-for="Input.Cliente.CodPostal"></label>
+                    <input asp-for="Input.Cliente.CodPostal" class="form-control" aria-required="true" placeholder="Código Posta" />
+                <label asp-for="Input.Cliente.CodPostal">Código Postal</label>
                 <span asp-validation-for="Input.Cliente.CodPostal" class="text-danger"></span>
             </div>
-
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.NrTelemovel" class="form-control" />
-                <label asp-for="Input.Cliente.NrTelemovel"></label>
+                    <input asp-for="Input.Cliente.NrTelemovel" class="form-control" aria-required="true" placeholder="Número de Telemóvel" />
+                <label asp-for="Input.Cliente.NrTelemovel">Número de Telemóvel</label>
                 <span asp-validation-for="Input.Cliente.NrTelemovel" class="text-danger"></span>
             </div>
-
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.Cidade" class="form-control" />
-                <label asp-for="Input.Cliente.Cidade"></label>
+                    <input asp-for="Input.Cliente.Cidade" class="form-control" aria-required="true" placeholder="Cidade" />
+                <label asp-for="Input.Cliente.Cidade">Cidade</label>
                 <span asp-validation-for="Input.Cliente.Cidade" class="text-danger"></span>
             </div>
-
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.País" class="form-control" />
-                <label asp-for="Input.Cliente.País"></label>
+                    <input asp-for="Input.Cliente.País" class="form-control" aria-required="true" placeholder="País" />
+                <label asp-for="Input.Cliente.País">País</label>
                 <span asp-validation-for="Input.Cliente.País" class="text-danger"></span>
             </div>
-
             <div class="form-floating mb-3">
-                <input asp-for="Input.Cliente.NrContribuinte" class="form-control" />
-                <label asp-for="Input.Cliente.NrContribuinte"></label>
+                    <input asp-for="Input.Cliente.NrContribuinte" class="form-control" aria-required="true" placeholder="Número de Contribuinte">
+                <label asp-for="Input.Cliente.NrContribuinte">Número de Contribuinte</label>
                 <span asp-validation-for="Input.Cliente.NrContribuinte" class="text-danger"></span>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <hr />
-        <div class="col-md-4">
-            <button id="registerSubmit"
-                    type="submit" class="w-100 btn btn-lg btn-primary">
-                Registar
-            </button>
+    <div class="row" style="width:50%; margin:auto;">
+        <div class="col-md-12">
+            <hr />
+                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary" style="background-color:rgb(253, 128, 36);">Registar</button>
         </div>
     </div>
-
 </form>
+
+</div>
+
 
 
 @*

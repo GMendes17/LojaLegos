@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace CriadorCaes.Areas.Identity.Pages.Account
+namespace LojaLegos.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
