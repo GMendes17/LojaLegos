@@ -1,38 +1,170 @@
 ﻿@model LojaLegos.Models.Encomenda
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Pagamento";
     var precoTotal = TempData["precoTotal"];
     var teste = TempData["ArtigosQuantidades"];
-
+    var apelido = ViewData["apelido"];
+    var CodPostal = ViewData["CodPostal"];
+    var NrTelemovel = ViewData["Nrtelemovel"];
+    var PrimeiroNome = ViewData["nome"];
+    var NrContribuinte = ViewData["NrContri"];
+    var Morada = ViewData["morada"];
+    var Email = ViewData["email"];
 }
 
-<h1>Create</h1>
-
-<h4>Encomenda</h4>
+<h1 style=" padding-left: 380px; padding-top: 10px;" >Pagamento</h1>
 <hr />
+
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Total" class="control-label"></label>
-                <input asp-for="Total"  value="@precoTotal" class="form-control" />
-                <span asp-validation-for="Total" class="text-danger"></span>
-                <input type="hidden" name="ArtQuant" value="@teste" />
+    <div class="col-md-6 offset-md-3">
+        <div class="payment-section">
+            <h4 class="payment-section-title">Dados Pessoais</h4>
+            <div class="payment-details">
+                <div class="payment-details-row">
+                    <label>Nome:</label>
+                    <span>@PrimeiroNome @apelido</span>
+                </div>
+                <div class="payment-details-row">
+                    <label>Número de Contribuinte:</label>
+                    <span>@NrContribuinte</span>
+                </div>
+                <div class="payment-details-row">
+                    <label>Morada:</label>
+                    <span>@CodPostal @Morada</span>
+                </div>
             </div>
-          
-           
-         
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+
+        <div class="payment-section">
+            <h4 class="payment-section-title">Contactos</h4>
+            <div class="payment-details">
+                <div class="payment-details-row">
+                    <label>Telemóvel:</label>
+                    <span>@NrTelemovel</span>
+                </div>
+                <div class="payment-details-row">
+                    <label>Email:</label>
+                    <span>@Email</span>
+                </div>
             </div>
-        </form>
+        </div>
+
+        <div class="payment-section">
+            <h4 class="payment-section-title">Pagamento</h4>
+            <div class="payment-details">
+                <div class="payment-details-row">
+                    <label>Valor a pagar:</label>
+                    <span>@precoTotal €</span>
+                </div>
+            </div>
+
+            <form id="paymentForm" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Total" class="control-label hidden"></label>
+                    <input asp-for="Total" class="form-control hidden" value="@precoTotal" />
+                    <span asp-validation-for="Total" class="text-danger hidden"></span>
+                    <input type="hidden" name="ArtQuant" value="@teste" />
+                </div>
+
+                <div class="payment-methods">
+                    <div class="payment-methods-box">
+                        <h4 class="payment-methods-title">Método de Pagamento</h4>
+                        <div class="payment-methods-options">
+                            <label>
+                                <input type="radio" name="metodoPagamento" value="dinheiro" /> MB WAY
+                            </label>
+                            <label>
+                                <input type="radio" name="metodoPagamento" value="cartao" /> Cartão
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-button">
+                    <input type="button" value="Pagamento" class="btn btn-primary" onclick="validatePayment()" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    
-    <a asp-action="Index">Back to List</a>
-</div>
+<style>
+    .hidden {
+        display: none;
+    }
 
+    .payment-section {
+        margin-bottom: 30px;
+    }
+
+    .payment-section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .payment-details {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .payment-details-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+        .payment-details-row label {
+            flex: 1;
+            font-weight: bold;
+        }
+
+        .payment-details-row span {
+            flex: 2;
+        }
+
+    .payment-methods {
+        margin-top: 20px;
+        border: 1px solid #dee2e6;
+        padding: 10px;
+    }
+
+    .payment-methods-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .payment-methods-options {
+        margin-bottom: 10px;
+    }
+
+    .payment-methods label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .payment-button {
+        margin-top: 20px;
+    }
+</style>
+       
+
+
+
+
+
+<script>
+    function validatePayment() {
+        var metodoPagamento = document.querySelector('input[name="metodoPagamento"]:checked');
+        if (!metodoPagamento) {
+            alert('Por favor, selecione um meio de pagamento.');
+        } else {
+            document.getElementById('paymentForm').submit();
+        }
+    }
+</script>

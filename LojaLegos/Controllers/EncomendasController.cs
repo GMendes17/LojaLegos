@@ -80,6 +80,14 @@ namespace LojaLegos.Controllers
                 return NotFound();
             }
 
+            ViewData["apelido"] = utilizador.Apelido;
+            ViewData["CodPostal"] = utilizador.CodPostal;
+            ViewData["Nrtelemovel"] = utilizador.NrTelemovel;
+            ViewData["nome"] = utilizador.PrimeiroNome;
+            ViewData["NrContri"] = utilizador.NrContribuinte;
+            ViewData["morada"] = utilizador.Morada;
+            ViewData["email"] = utilizador.Email;
+
             encomenda.ClienteFK = utilizador.Id;
             encomenda.Data = DateTime.Now;
             Console.WriteLine("teste: {0}", ArtQuant);
