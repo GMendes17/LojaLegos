@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Create";
     var precoTotal = TempData["precoTotal"];
+    var teste = TempData["ArtigosQuantidades"];
+
 }
 
 <h1>Create</h1>
@@ -17,6 +19,7 @@
                 <label asp-for="Total" class="control-label"></label>
                 <input asp-for="Total"  value="@precoTotal" class="form-control" />
                 <span asp-validation-for="Total" class="text-danger"></span>
+                <input type="hidden" name="ArtQuant" value="@teste" />
             </div>
           
            
@@ -29,8 +32,7 @@
 </div>
 
 <div>
-    <p>@precoTotal</p>
-
+    
     <a asp-action="Index">Back to List</a>
 </div>
 

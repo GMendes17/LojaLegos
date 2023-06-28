@@ -1,7 +1,44 @@
 ﻿@model List<LojaLegos.Models.Artigo>
 @{
     ViewData["Title"] = "Carrinho de Compras";
+
 }
+
+<script>
+    function enviarDados(event) {
+        event.preventDefault(); // Impede o envio do formulário no momento
+
+        var linhas = document.querySelectorAll("[data-artigo-id]");
+
+        var quantidades = Array.from(linhas).map(function (linha) {
+            var artigoId = linha.getAttribute("data-artigo-id");
+            var quantidadeInput = linha.querySelector(".quantidade");
+            var quantidade = quantidadeInput ? quantidadeInput.value : 1;
+            return artigoId + ";" + quantidade;
+        });
+
+        var artigosQuantidades = quantidades.join("|");
+        console.log(artigosQuantidades);
+
+        // Envia os dados para o servidor usando uma chamada AJAX
+        $.ajax({
+            url: "/Encomendas/SetArtigosQuantidades",
+            type: "POST",
+            data: { artigosQuantidades: artigosQuantidades },
+            success: function (result) {
+                // Ação de sucesso, se necessário
+                console.log("ArtigosQuantidades enviados com sucesso.");
+                // Após enviar os dados, envie o formulário
+                document.getElementById("formPagamento").submit();
+            },
+            error: function (error) {
+                // Ação em caso de erro, se necessário
+                console.error("Erro ao enviar ArtigosQuantidades:", error);
+            }
+        });
+    }
+</script>
+
 
 <div style="width: 50%; margin: auto;">
     <h1 style="text-align: left;">Carrinho de Compras</h1>
@@ -42,7 +79,7 @@
 
             precoTotal += artigo.Preco;
             TempData["precoTotal"] = precoTotal.ToString();
-            ViewBag.precoTotal = precoTotal.ToString();
+            
         }
         <tr>
             <td colspan="4">
@@ -60,35 +97,18 @@
     }
 </table>
 
-   <form id="formPagamento" method="post" action="@Url.Action("Create", "Encomendas")" onsubmit="obterArtigosQuantidades()">
-        @Html.AntiForgeryToken()
+             @Html.AntiForgeryToken()
+             <form id="formPagamento" method="post" action="@Url.Action("Create", "Encomendas")" onsubmit="enviarDados(event)">
+                <input type="hidden" name="artigosQuantidades" id="artigosQuantidades" value="" />
 
-        <input type="hidden" name="artigosQuantidades" id="artigosQuantidades" value="" />
-
-        <button type="submit" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;">
-            <h3 style="margin-bottom: 0px;">Encomendar</h3>
-        </button>
-    </form>
+                <button type="submit" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;">
+                     <h3 style="margin-bottom: 0px;">Encomendar</h3>
+                </button>
+             </form>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-   function obterArtigosQuantidades() {
-    var linhas = document.querySelectorAll("[data-artigo-id]");
-
-    var quantidades = Array.from(linhas).map(function (linha) {
-        var artigoId = linha.getAttribute("data-artigo-id");
-        var quantidadeInput = linha.querySelector(".quantidade");
-        var quantidade = quantidadeInput ? quantidadeInput.value : 1;
-        return artigoId + ";" + quantidade;
-    });
-
-    var artigosQuantidades = quantidades.join("|");
-
-    document.getElementById("artigosQuantidades").value = artigosQuantidades;
-    alert(artigosQuantidades)
-  
-    return true; // Permitir que o formulário seja enviado
-}
 
     function obterValorCookie(nome) {
         var cookies = document.cookie.split("; ");
@@ -137,7 +157,7 @@
         document.cookie = "carrinho=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
     location.reload(); // Recarrega a página para atualizar o carrinho e o preço total
-}
+   }
 
     function atualizarPrecoTotal() {
         var precoTotal = 0;

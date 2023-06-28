@@ -141,7 +141,10 @@ namespace LojaLegos.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
@@ -384,21 +387,21 @@ namespace LojaLegos.Migrations
                         new
                         {
                             Id = "c",
-                            ConcurrencyStamp = "5237f2a8-62f5-433a-89e1-b0cdc886618a",
+                            ConcurrencyStamp = "bdd8442b-d759-4aaf-940f-8c5ef23ac7b9",
                             Name = "Cliente",
                             NormalizedName = "CLIENTE"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "46b17418-a11f-4559-b0c9-e2f635f48ba8",
+                            ConcurrencyStamp = "6ae23bf6-fc08-44db-9bd4-76591825872f",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         },
                         new
                         {
                             Id = "f",
-                            ConcurrencyStamp = "fc53266f-18bb-4e38-93a3-5bcf5a6d6be4",
+                            ConcurrencyStamp = "d7672bed-e8fc-4a48-9f58-d2a7effee76c",
                             Name = "Funcionario",
                             NormalizedName = "FUNCIONARIO"
                         });

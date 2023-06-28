@@ -77,13 +77,13 @@ namespace LojaLegos.Controllers
         {
             var cookieValue = Request.Cookies["carrinho"];
             var numeros = cookieValue?.Split('-')
-    .Where(s => !string.IsNullOrEmpty(s)) // Remover strings vazias
-    .Select(s =>
-    {
-        int.TryParse(s, out int num);
-        return num;
-    })
-    .ToList();
+            .Where(s => !string.IsNullOrEmpty(s)) // Remover strings vazias
+            .Select(s =>
+            {
+             int.TryParse(s, out int num);
+             return num;
+             })
+            .ToList();
 
             if (numeros != null && numeros.Any())
             {
@@ -196,6 +196,11 @@ namespace LojaLegos.Controllers
             return View(artigo);
         }
 
+        private bool ArtigoExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Artigos == null)
@@ -232,17 +237,5 @@ namespace LojaLegos.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Pagamento()
-        {
-    
-            return RedirectToAction("Pagamento", "EncomendasController");
-        }
-
-        private bool ArtigoExists(int id)
-        {
-            return _context.Artigos.Any(e => e.Id == id);
-        }
     }
 }

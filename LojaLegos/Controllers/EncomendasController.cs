@@ -20,6 +20,19 @@ namespace LojaLegos.Controllers
             _context = context;
         }
 
+
+
+
+        [HttpPost]
+        public ActionResult SetArtigosQuantidades(string artigosQuantidades)
+        {
+            TempData["ArtigosQuantidades"] = artigosQuantidades;
+            
+            Console.WriteLine(artigosQuantidades);
+            return Json(new { success = true });
+        }
+
+
         // GET: Encomendas
         public async Task<IActionResult> Index()
         {
@@ -58,7 +71,7 @@ namespace LojaLegos.Controllers
         // GET: Encomendas/Create
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda, string artigosQuantidades)
+        public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda,string ArtQuant)
         {
             var utilizador = await _context.Clientes.FirstOrDefaultAsync(u => u.Email == User.Identity.Name);
             if (utilizador == null)
@@ -69,6 +82,10 @@ namespace LojaLegos.Controllers
 
             encomenda.ClienteFK = utilizador.Id;
             encomenda.Data = DateTime.Now;
+            Console.WriteLine("teste: {0}", ArtQuant);
+
+
+            var artigosQuantidades = ArtQuant;
 
             if (ModelState.IsValid)
             {
@@ -80,11 +97,11 @@ namespace LojaLegos.Controllers
 
                 // Processar a string artigosQuantidades e criar as entradas na tabela EncomendasArtigos
                 
-                Console.WriteLine("artigosQuantidades:", artigosQuantidades);
+                
 
                 if (!string.IsNullOrEmpty(artigosQuantidades))
                 {
-                    string[] artigosQuantidadesArray = artigosQuantidades.Split('/');
+                    string[] artigosQuantidadesArray = artigosQuantidades.Split('|');
 
                     foreach (var item in artigosQuantidadesArray)
                     {
@@ -103,6 +120,7 @@ namespace LojaLegos.Controllers
                     }
 
                     await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Artigos");
                 }
 
                 return RedirectToAction(nameof(Index));
