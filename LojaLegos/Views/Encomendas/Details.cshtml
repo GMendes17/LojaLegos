@@ -1,36 +1,91 @@
 ﻿@model LojaLegos.Models.Encomenda
 
-@{
-    ViewData["Title"] = "Details";
-}
+<style>
 
-<h1>Details</h1>
 
-<div>
-    <h4>Encomenda</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Total)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Data)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Data)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cliente)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cliente.Id)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    table.table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        table.table th,
+        table.table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table.table th {
+            background-color: #f2f2f2;
+        }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+</style>
+
+
+
+<div name="pai" style="width:80%; margin:auto ;" >
+    <div>
+        <h4 style="margin-top: 15px;">Detalhes</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Referência :
+            </dt>
+            <dd class="col-sm-4">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt class="col-sm-2">
+                Total :
+            </dt>
+            <dd class="col-sm-4">
+                @Html.DisplayFor(model => model.Total)
+            </dd>
+            <dt class="col-sm-2">
+                Data :
+            </dt>
+            <dd class="col-sm-4">
+                @Html.DisplayFor(model => model.Data)
+            </dd>
+            <dt class="col-sm-2">
+                Cliente :
+            </dt>
+            <dd class="col-sm-4">
+                @Html.DisplayFor(model => model.Cliente.PrimeiroNome) @Html.DisplayFor(model => model.Cliente.Apelido)
+            </dd>
+            
+            <dd class="col-sm-10">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID do Artigo</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var artigoEncomenda in Model.ArtigoEncomendas.Where(ae => ae.EncomendaId == Model.Id))
+                        {
+                            <tr>
+                                <td>@artigoEncomenda.ArtigoId</td>
+                                <td>@artigoEncomenda.Quantidade</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        <a asp-action="Index">Voltar à Lista</a>
+    </div>
 </div>

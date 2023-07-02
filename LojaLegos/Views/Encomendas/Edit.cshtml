@@ -1,13 +1,5 @@
-﻿@model LojaLegos.Models.Encomenda
+﻿@model Encomenda
 
-@{
-    ViewData["Title"] = "Edit";
-}
-
-<h1>Edit</h1>
-
-<h4>Encomenda</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -28,6 +20,35 @@
                 <select asp-for="ClienteFK" class="form-control" asp-items="ViewBag.ClienteFK"></select>
                 <span asp-validation-for="ClienteFK" class="text-danger"></span>
             </div>
+            <hr />
+            <h4>Artigos Encomendados</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID do Artigo</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+               
+                <tbody>
+                    @foreach (var artigoEncomenda in Model.ArtigoEncomendas.Where(ae => ae.EncomendaId == Model.Id))
+                        {
+                            <tr>
+                                <td>
+                                    @artigoEncomenda.ArtigoId
+                                    <input type="hidden" asp-for="@artigoEncomenda.Id" />
+                                    <input type="hidden" asp-for="@artigoEncomenda.EncomendaId" />
+                                    <input type="hidden" asp-for="@artigoEncomenda.ArtigoId" />
+                                </td>
+                                <td>
+                                    <input asp-for="@artigoEncomenda.Quantidade" class="form-control" />
+                                    <span asp-validation-for="@artigoEncomenda.Quantidade" class="text-danger"></span>
+                                </td>
+                            </tr>
+                        }
+                    
+                </tbody>
+            </table>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -38,4 +59,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-

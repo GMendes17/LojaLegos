@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using LojaLegos.Data;
 using LojaLegos.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.Differencing;
+using System.Security.Cryptography;
 
 namespace LojaLegos.Controllers
 {
@@ -40,7 +42,7 @@ namespace LojaLegos.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        
+
 
         // GET: Encomendas/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -52,7 +54,10 @@ namespace LojaLegos.Controllers
 
             var encomenda = await _context.Encomendas
                 .Include(e => e.Cliente)
+                .Include(e => e.ArtigoEncomendas)
+                    .ThenInclude(ae => ae.Artigo)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (encomenda == null)
             {
                 return NotFound();
@@ -64,7 +69,7 @@ namespace LojaLegos.Controllers
         //public IActionResult Create()
         //{
         //    ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", "ClienteFK");
-           
+
         //    return View();
         //}
 
@@ -142,26 +147,30 @@ namespace LojaLegos.Controllers
         // GET: Encomendas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Encomendas == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var encomenda = await _context.Encomendas.FindAsync(id);
+            var encomenda = await _context.Encomendas
+                .Include(e => e.Cliente)
+                .Include(e => e.ArtigoEncomendas)
+                .FirstOrDefaultAsync(e => e.Id == id);
+
             if (encomenda == null)
             {
                 return NotFound();
             }
+
             ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", encomenda.ClienteFK);
             return View(encomenda);
         }
 
-        // POST: Encomendas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda)
+        public async Task<IActionResult> Edit(int id, Encomenda encomenda)
         {
             if (id != encomenda.Id)
             {
@@ -172,7 +181,34 @@ namespace LojaLegos.Controllers
             {
                 try
                 {
-                    _context.Update(encomenda);
+                    var existingEncomenda = await _context.Encomendas
+                        .Include(e => e.Cliente)
+                        .Include(e => e.ArtigoEncomendas)
+                        .FirstOrDefaultAsync(m => m.Id == id);
+
+                    if (existingEncomenda == null)
+                    {
+                        return NotFound();
+                    }
+
+                    existingEncomenda.Total = encomenda.Total;
+                    existingEncomenda.Data = encomenda.Data;
+                    existingEncomenda.ClienteFK = encomenda.ClienteFK;
+
+                    // Limpar a lista existente de ArtigoEncomendas
+                    existingEncomenda.ArtigoEncomendas.Clear();
+
+                    // Adicionar os itens de encomenda atualizados
+                    foreach (var updatedArtigoEncomenda in encomenda.ArtigoEncomendas)
+                    {
+                        var artigoEncomenda = new ArtigoEncomenda
+                        {
+                            Quantidade = updatedArtigoEncomenda.Quantidade,
+                            ArtigoId = updatedArtigoEncomenda.ArtigoId
+                        };
+                        existingEncomenda.ArtigoEncomendas.Add(artigoEncomenda);
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -188,9 +224,11 @@ namespace LojaLegos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", encomenda.ClienteFK);
             return View(encomenda);
         }
+
 
         // GET: Encomendas/Delete/5
         public async Task<IActionResult> Delete(int? id)
