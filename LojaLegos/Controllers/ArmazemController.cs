@@ -11,8 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LojaLegos.Controllers
 {
-    [Authorize]
-    [Authorize(Roles = "Gestor,Funcionario")]
+    
     public class ArmazemController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,6 +21,7 @@ namespace LojaLegos.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Gestor,Funcionario")]
         // GET: Armazem
         public async Task<IActionResult> Index()
         {
@@ -37,7 +37,7 @@ namespace LojaLegos.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-
+        [Authorize(Roles = "Gestor,Funcionario")]
         // GET: Armazem/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -59,6 +59,8 @@ namespace LojaLegos.Controllers
         }
 
         // GET: Armazem/Create
+
+        [Authorize(Roles = "Gestor")]
         public IActionResult Create()
         {
             ViewData["ResponsavelFK"] = new SelectList(_context.Funcionarios, "Id", "Id");
@@ -81,7 +83,7 @@ namespace LojaLegos.Controllers
             ViewData["ResponsavelFK"] = new SelectList(_context.Funcionarios, "Id", "Id", armazem.ResponsavelFK);
             return View(armazem);
         }
-
+        [Authorize(Roles = "Gestor,Funcionario")]
         // GET: Armazem/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -136,6 +138,8 @@ namespace LojaLegos.Controllers
         }
 
         // GET: Armazem/Delete/5
+
+        [Authorize(Roles = "Gestor")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Armazem == null)

@@ -12,8 +12,8 @@ using System.Security.Claims;
 
 namespace LojaLegos.Controllers
 {
-    [Authorize]
-    [Authorize(Roles = "Gestor,Funcionario,Cliente")]
+   
+    
     public class ClientesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,12 +23,14 @@ namespace LojaLegos.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "Gestor,Funcionario")]
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
               return View(await _context.Clientes.ToListAsync());
         }
 
+        [Authorize(Roles = "Gestor,Funcionario")]
         // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -72,7 +74,7 @@ namespace LojaLegos.Controllers
         }
 
         // GET: Clientes/Edit/5
-        
+        [Authorize(Roles = "Cliente")]
         public async Task<IActionResult> Edit()
         {
             // Obter o ID do usuário atualmente autenticado
@@ -131,6 +133,7 @@ namespace LojaLegos.Controllers
             return View(cliente);
         }
 
+        [Authorize(Roles = "Cliente")]
         // GET: Clientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

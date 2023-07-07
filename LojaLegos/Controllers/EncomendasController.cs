@@ -87,7 +87,7 @@ namespace LojaLegos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda,string ArtQuant)
+        public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK,Estado")] Encomenda encomenda,string ArtQuant)
         {
             var utilizador = await _context.Clientes.FirstOrDefaultAsync(u => u.Email == User.Identity.Name);
             if (utilizador == null)
@@ -106,6 +106,7 @@ namespace LojaLegos.Controllers
 
             encomenda.ClienteFK = utilizador.Id;
             encomenda.Data = DateTime.Now;
+            encomenda.Estado = "pago";
             Console.WriteLine("teste: {0}", ArtQuant);
 
 
@@ -179,7 +180,7 @@ namespace LojaLegos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Total,Data,ClienteFK,ArtigoEncomendas")] Encomenda encomenda)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Total,Data,ClienteFK,ArtigoEncomendas,Estado")] Encomenda encomenda)
         {
             if (id != encomenda.Id)
             {
@@ -202,6 +203,7 @@ namespace LojaLegos.Controllers
 
                     // Atualizar os valores da Encomenda
                     existingEncomenda.Total = encomenda.Total;
+                    existingEncomenda.Estado = encomenda.Estado;
                     existingEncomenda.Data = encomenda.Data;
                     existingEncomenda.ClienteFK = encomenda.ClienteFK;
 

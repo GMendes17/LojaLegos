@@ -45,13 +45,13 @@ namespace LojaLegos.Data
                 new Armazem { Id =1 ,Local = "Tomar" , ResponsavelFK =1}
                 );
             modelBuilder.Entity<ArtigoEncomenda>().HasData(
-                new ArtigoEncomenda { Id = 1 , ArtigoId = 1 , EncomendaId = 1 ,Quantidade =23}
+                new ArtigoEncomenda { ArtigoId = 1 , EncomendaId = 1 ,Quantidade =23}
                  );
             modelBuilder.Entity<ArtigoEncomenda>().HasData(
-               new ArtigoEncomenda { Id = 2, ArtigoId = 2, EncomendaId = 1, Quantidade = 26 }
+               new ArtigoEncomenda { ArtigoId = 2, EncomendaId = 1, Quantidade = 26 }
                 );
             modelBuilder.Entity<Encomenda>().HasData(
-              new Encomenda {Id =1 , ClienteFK = 1, Total = "3000" , Data = new DateTime(2023, 06, 25, 13, 58, 56) }
+              new Encomenda {Id =1 , ClienteFK = 1, Total = "3000" , Data = new DateTime(2023, 06, 25, 13, 58, 56) , Estado = "expedido" }
                );
 
             modelBuilder.Entity<ArtigoEncomenda>()

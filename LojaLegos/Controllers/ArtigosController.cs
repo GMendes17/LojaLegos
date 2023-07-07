@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LojaLegos.Data;
 using LojaLegos.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace LojaLegos.Controllers
 {
@@ -201,6 +203,7 @@ namespace LojaLegos.Controllers
             throw new NotImplementedException();
         }
 
+        [Authorize(Roles = "Gestor , Funcionario")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Artigos == null)

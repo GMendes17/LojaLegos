@@ -16,6 +16,28 @@
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <select asp-for="Estado" class="form-control">
+                    @if (Model.Estado == "pago")
+                    {
+                        <option value="pago">Pago</option>
+                        <option value="preparado">Preparado</option>
+
+                    }
+                    else if(Model.Estado == "preparado")
+                    {
+                        <option value="preparado">Preparado</option>
+                        <option value="expedido">Expedido</option>
+                    }
+                    else if (Model.Estado == "expedido")
+                    {
+                        <option value="expedido">Expedido</option>
+                    }
+
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ClienteFK" class="control-label"></label>
                 <select asp-for="ClienteFK" class="form-control" asp-items="ViewBag.ClienteFK"></select>
                 <span asp-validation-for="ClienteFK" class="text-danger"></span>

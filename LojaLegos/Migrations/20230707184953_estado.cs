@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LojaLegos.Migrations
 {
-    public partial class BDligacaoAuth : Migration
+    public partial class estado : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -57,7 +57,7 @@ namespace LojaLegos.Migrations
                     PrimeiroNome = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Apelido = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Morada = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CodPostal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CodPostal = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cidade = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     País = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -201,6 +201,7 @@ namespace LojaLegos.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Total = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Data = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClienteFK = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -290,7 +291,6 @@ namespace LojaLegos.Migrations
                 {
                     ArtigoId = table.Column<int>(type: "int", nullable: false),
                     EncomendaId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     Quantidade = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -315,9 +315,9 @@ namespace LojaLegos.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "c", "5237f2a8-62f5-433a-89e1-b0cdc886618a", "Cliente", "CLIENTE" },
-                    { "f", "fc53266f-18bb-4e38-93a3-5bcf5a6d6be4", "Funcionario", "FUNCIONARIO" },
-                    { "g", "46b17418-a11f-4559-b0c9-e2f635f48ba8", "Gestor", "GESTOR" }
+                    { "c", "3d908369-b47d-44ac-be57-e00777bd89f0", "Cliente", "CLIENTE" },
+                    { "f", "0f4d0a0a-b068-4403-adc0-21c4230266c7", "Funcionario", "FUNCIONARIO" },
+                    { "g", "24da4093-017a-4124-9c83-bf6d1dfdc400", "Gestor", "GESTOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -332,8 +332,8 @@ namespace LojaLegos.Migrations
 
             migrationBuilder.InsertData(
                 table: "Encomendas",
-                columns: new[] { "Id", "ClienteFK", "Data", "Total" },
-                values: new object[] { 1, 1, new DateTime(2023, 6, 25, 13, 58, 56, 0, DateTimeKind.Unspecified), "3000" });
+                columns: new[] { "Id", "ClienteFK", "Data", "Estado", "Total" },
+                values: new object[] { 1, 1, new DateTime(2023, 6, 25, 13, 58, 56, 0, DateTimeKind.Unspecified), "expedido", "3000" });
 
             migrationBuilder.InsertData(
                 table: "Funcionarios",
@@ -357,13 +357,13 @@ namespace LojaLegos.Migrations
 
             migrationBuilder.InsertData(
                 table: "ArtigoEncomendas",
-                columns: new[] { "ArtigoId", "EncomendaId", "Id", "Quantidade" },
-                values: new object[] { 1, 1, 1, 23 });
+                columns: new[] { "ArtigoId", "EncomendaId", "Quantidade" },
+                values: new object[] { 1, 1, 23 });
 
             migrationBuilder.InsertData(
                 table: "ArtigoEncomendas",
-                columns: new[] { "ArtigoId", "EncomendaId", "Id", "Quantidade" },
-                values: new object[] { 2, 1, 2, 26 });
+                columns: new[] { "ArtigoId", "EncomendaId", "Quantidade" },
+                values: new object[] { 2, 1, 26 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Armazem_ResponsavelFK",

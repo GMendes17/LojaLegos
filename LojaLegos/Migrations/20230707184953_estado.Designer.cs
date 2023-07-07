@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaLegos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230625142859_BDligacaoAuth")]
-    partial class BDligacaoAuth
+    [Migration("20230707184953_estado")]
+    partial class estado
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -142,9 +142,6 @@ namespace LojaLegos.Migrations
                     b.Property<int>("EncomendaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
@@ -159,14 +156,12 @@ namespace LojaLegos.Migrations
                         {
                             ArtigoId = 1,
                             EncomendaId = 1,
-                            Id = 1,
                             Quantidade = 23
                         },
                         new
                         {
                             ArtigoId = 2,
                             EncomendaId = 1,
-                            Id = 2,
                             Quantidade = 26
                         });
                 });
@@ -190,6 +185,7 @@ namespace LojaLegos.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("CodPostal")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -255,6 +251,9 @@ namespace LojaLegos.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Total")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -272,6 +271,7 @@ namespace LojaLegos.Migrations
                             Id = 1,
                             ClienteFK = 1,
                             Data = new DateTime(2023, 6, 25, 13, 58, 56, 0, DateTimeKind.Unspecified),
+                            Estado = "expedido",
                             Total = "3000"
                         });
                 });
@@ -386,21 +386,21 @@ namespace LojaLegos.Migrations
                         new
                         {
                             Id = "c",
-                            ConcurrencyStamp = "5237f2a8-62f5-433a-89e1-b0cdc886618a",
+                            ConcurrencyStamp = "3d908369-b47d-44ac-be57-e00777bd89f0",
                             Name = "Cliente",
                             NormalizedName = "CLIENTE"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "46b17418-a11f-4559-b0c9-e2f635f48ba8",
+                            ConcurrencyStamp = "24da4093-017a-4124-9c83-bf6d1dfdc400",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         },
                         new
                         {
                             Id = "f",
-                            ConcurrencyStamp = "fc53266f-18bb-4e38-93a3-5bcf5a6d6be4",
+                            ConcurrencyStamp = "0f4d0a0a-b068-4403-adc0-21c4230266c7",
                             Name = "Funcionario",
                             NormalizedName = "FUNCIONARIO"
                         });

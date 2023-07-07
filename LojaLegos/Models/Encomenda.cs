@@ -20,6 +20,8 @@ namespace LojaLegos.Models
         public string Total { get; set; }
         public DateTime Data { get; set; }
 
+        public string Estado { get; set; }
+
         [ForeignKey(nameof(Cliente))]
         public int ClienteFK { get; set; }
         public Cliente Cliente { get; set; }
