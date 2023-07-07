@@ -5,7 +5,7 @@ namespace LojaLegos.Models
 {
     public class ArtigoEncomenda
     {
-        [Key]
+       // [Key]
         
         public int Id { get; set; }
 

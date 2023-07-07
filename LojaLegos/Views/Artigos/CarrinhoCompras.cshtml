@@ -1,4 +1,6 @@
 ﻿@model List<LojaLegos.Models.Artigo>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
 @{
     ViewData["Title"] = "Carrinho de Compras";
 
@@ -97,14 +99,30 @@
     }
 </table>
 
-             @Html.AntiForgeryToken()
-             <form id="formPagamento" method="post" action="@Url.Action("Create", "Encomendas")" onsubmit="enviarDados(event)">
-                <input type="hidden" name="artigosQuantidades" id="artigosQuantidades" value="" />
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <form id="formPagamento" method="post" action=" @Url.Action("Create","Encomendas")" onsubmit="enviarDados(event)">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="artigosQuantidades" id="artigosQuantidades" value="" />
 
-                <button type="submit" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;">
-                     <h3 style="margin-bottom: 0px;">Encomendar</h3>
-                </button>
-             </form>
+            <button type="submit" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;">
+                <h3 style="margin-bottom: 0px;">Encomendar</h3>
+            </button>
+        </form>
+    }
+    else
+    {
+        <button type="submit" style="width: 100%; border-radius: 12px; border: 1px white; padding: 5px 0px; background-color: rgb(253, 128, 36); margin-bottom: 0px; color: white;">
+            <a asp-area="Identity" asp-page="/Account/Login" class="card-footer mt-auto " style="text-decoration: none;text-align:center; padding:5px 0px ;background-color:#eb8124;margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+                <h3 style="margin-bottom: 0px;">Encomendar</h3>
+            </a>
+        </button>
+       
+
+    }
+
+             
+            
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

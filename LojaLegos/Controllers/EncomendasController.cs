@@ -66,16 +66,27 @@ namespace LojaLegos.Controllers
             return View(encomenda);
         }
 
-        //public IActionResult Create()
-        //{
-        //    ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Id", "ClienteFK");
 
-        //    return View();
-        //}
+       // GET: Encomendas/Create
+        public async Task<IActionResult> Create()
+        {
+            // ViewData["ClienteFK"] = new SelectList(_context.Clientes, "Id", "Nome", "ClienteFK");
+            var utilizador = await _context.Clientes.FirstOrDefaultAsync(u => u.Email == User.Identity.Name);
+            if (utilizador == null)
+            {
+                // Lidar com o caso em que o utilizador não foi encontrado
+                return NotFound();
+            }
 
-        // GET: Encomendas/Create
+           
+
+            return View();
+        }
+
+
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Total,Data,ClienteFK")] Encomenda encomenda,string ArtQuant)
         {
             var utilizador = await _context.Clientes.FirstOrDefaultAsync(u => u.Email == User.Identity.Name);
@@ -166,11 +177,9 @@ namespace LojaLegos.Controllers
             return View(encomenda);
         }
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Encomenda encomenda)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Total,Data,ClienteFK,ArtigoEncomendas")] Encomenda encomenda)
         {
             if (id != encomenda.Id)
             {
@@ -182,31 +191,32 @@ namespace LojaLegos.Controllers
                 try
                 {
                     var existingEncomenda = await _context.Encomendas
-                        .Include(e => e.Cliente)
-                        .Include(e => e.ArtigoEncomendas)
-                        .FirstOrDefaultAsync(m => m.Id == id);
+                       .Include(e => e.Cliente)
+                       .Include(e => e.ArtigoEncomendas)
+                       .FirstOrDefaultAsync(m => m.Id == id);
 
                     if (existingEncomenda == null)
                     {
                         return NotFound();
                     }
 
+                    // Atualizar os valores da Encomenda
                     existingEncomenda.Total = encomenda.Total;
                     existingEncomenda.Data = encomenda.Data;
                     existingEncomenda.ClienteFK = encomenda.ClienteFK;
 
-                    // Limpar a lista existente de ArtigoEncomendas
-                    existingEncomenda.ArtigoEncomendas.Clear();
-
-                    // Adicionar os itens de encomenda atualizados
-                    foreach (var updatedArtigoEncomenda in encomenda.ArtigoEncomendas)
+                    // Atualizar os valores do ArtigoEncomendas
+                    foreach (var artigoEncomenda in existingEncomenda.ArtigoEncomendas)
                     {
-                        var artigoEncomenda = new ArtigoEncomenda
+                        if (artigoEncomenda.EncomendaId == encomenda.Id)
                         {
-                            Quantidade = updatedArtigoEncomenda.Quantidade,
-                            ArtigoId = updatedArtigoEncomenda.ArtigoId
-                        };
-                        existingEncomenda.ArtigoEncomendas.Add(artigoEncomenda);
+                            var updatedArtigoEncomenda = encomenda.ArtigoEncomendas.FirstOrDefault(ae => ae.ArtigoId == artigoEncomenda.ArtigoId);
+
+                            if (updatedArtigoEncomenda != null)
+                            {
+                                artigoEncomenda.Quantidade = updatedArtigoEncomenda.Quantidade;
+                            }
+                        }
                     }
 
                     await _context.SaveChangesAsync();

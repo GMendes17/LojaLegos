@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
+﻿
 @model IEnumerable<LojaLegos.Models.Artigo>
 
 @{
@@ -42,7 +41,7 @@ function pinta(x) {
   x.style.color = "white";
 }
 
-function f1(elem) {
+function createC(elem) {
     
   $.post("/Artigos/CoockieCarrinhoCompras", { num : elem });
 }
@@ -101,20 +100,12 @@ function f1(elem) {
         
       </div>
        </a>
+
+                        <button class="card-footer mt-auto " onclick="createC(@Html.DisplayFor(modelItem => item.Id));alert('adicionado ao carrinho')" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
+                            <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
+                        </button>
       
-       @if (SignInManager.IsSignedIn(User)){
-           <button class="card-footer mt-auto " onclick= "f1(@Html.DisplayFor(modelItem => item.Id));alert('adicionado ao carrinho')" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
-                <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
-           </button>
-       }
-       else
-       {
-           
-            <a asp-area="Identity" asp-page="/Account/Login" class="card-footer mt-auto "   style="text-decoration: none;text-align:center; padding:5px 0px ;background-color:#eb8124;margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)" >    
-                <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
-            </a> 
-            
-        }
+     
                             <!--Imagem retirada de "https://www.flaticon.com/free-icons/smart-cart" Smart cart icons created by Freepik - Flaticon*-->
      
         

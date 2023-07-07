@@ -64,18 +64,18 @@
                         }
                     </ul>  
                     <ul class="navbar-nav  me-auto" >
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="float:right;" asp-area="" asp-controller="Artigos" asp-action="CarrinhoCompras"><img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png"></a>
+                        </li>
                         @if (User.IsInRole("Cliente"))
-                        {   
-                            
-                            <li class="nav-item" >
-                                <a class="nav-link text-dark" style="float:right;" asp-area="" asp-controller="Artigos" asp-action="CarrinhoCompras"><img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png"></a>
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Edit">
+                                    <img style="align:padding-bottom:4px;" src="~/Imagens/user.png">
+                                </a>
                             </li>
-                            <li class="nav-item" >
-                               
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="MeuPerfil" asp-route-Id= "" ><img style="align;padding-bottom:4px;" src="~/Imagens/user.png"></a>
-                            </li>
-                        }                       
-                      
+                        }
+                    </ul>
                     
                     <partial name="_LoginPartial" />
                 </div>

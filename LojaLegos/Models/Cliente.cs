@@ -23,7 +23,10 @@ namespace LojaLegos.Models
         [RegularExpression("[A-ZÂÓÍa-záéíóúàèìòùâêîôûãõäëïöüñç '-]+", ErrorMessage = "Só pode escrever letras no {0}")]
         public string Apelido { get; set; }
 
-        public string Morada { get; set; }  
+        public string Morada { get; set; }
+
+        [Required(ErrorMessage = "O {0} deve ter o formato XXXX-XXX")]
+        [RegularExpression("[1-9][0-9]{3}-[0-9]{3}")]
 
         public string CodPostal   { get; set; }
 

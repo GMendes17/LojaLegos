@@ -8,11 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using LojaLegos.Data;
 using LojaLegos.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace LojaLegos.Controllers
 {
     [Authorize]
-    [Authorize(Roles = "Gestor,Funcionario,Clientes")]
+    [Authorize(Roles = "Gestor,Funcionario,Cliente")]
     public class ClientesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -46,23 +47,7 @@ namespace LojaLegos.Controllers
             return View(cliente);
         }
 
-        public async Task<IActionResult> MeuPerfil(int? id)
-        {
-            if (id == null || _context.Clientes == null)
-            {
-                return NotFound();
-            }
-
-            var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (cliente == null)
-            {
-                return NotFound();
-            }
-
-            return View(cliente);
-        }
+       
 
         // GET: Clientes/Create
         public IActionResult Create()
@@ -87,18 +72,27 @@ namespace LojaLegos.Controllers
         }
 
         // GET: Clientes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        
+        public async Task<IActionResult> Edit()
         {
-            if (id == null || _context.Clientes == null)
+            // Obter o ID do usuário atualmente autenticado
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Verificar se o ID do usuário é nulo ou vazio
+            if (string.IsNullOrEmpty(userId))
             {
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes.FindAsync(id);
+            // Procurar o cliente com base no UserId
+            var cliente = await _context.Clientes.FirstOrDefaultAsync(c => c.UserId == userId);
+
+            // Verificar se o cliente foi encontrado
             if (cliente == null)
             {
                 return NotFound();
             }
+
             return View(cliente);
         }
 
@@ -107,7 +101,7 @@ namespace LojaLegos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,PrimeiroNome,Apelido,Morada,CodPostal,Cidade,País,Email,NrTelemovel,NrContribuinte")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,PrimeiroNome,Apelido,Morada,CodPostal,Cidade,País,Email,NrTelemovel,NrContribuinte,UserId")] Cliente cliente)
         {
             if (id != cliente.Id)
             {
