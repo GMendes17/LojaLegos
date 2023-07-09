@@ -128,7 +128,7 @@ namespace LojaLegos.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Artigos");
             }
             return View(cliente);
         }

@@ -18,7 +18,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" style="margin: 0px !important;background-color:#fddd01; ">
             <div class="container-fluid">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Artigos" asp-action="Index">LegoMania</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LegoMania</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -63,7 +63,14 @@
                             </li>
                         }
                     </ul>  
+
                     <ul class="navbar-nav  me-auto" >
+                        @if (User.IsInRole("Cliente"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" style="float: right;" asp-area="" asp-controller="Encomendas" asp-action="Index">Minhas Encomendas</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" style="float:right;" asp-area="" asp-controller="Artigos" asp-action="CarrinhoCompras"><img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png"></a>
                         </li>
