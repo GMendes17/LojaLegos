@@ -3,9 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<div style="width: 80%; margin: auto; margin-top: 40px;">
 <h1>Lista de Encomendas</h1>
-
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -15,9 +15,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Data)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cliente)
+            @if (User.IsInRole("Gestor") || User.IsInRole("Funcionario"))
+            {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
             </th>
+            }
             <th></th>
         </tr>
     </thead>
@@ -58,9 +61,6 @@
                             @Html.DisplayFor(modelItem => item.Data)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Cliente.PrimeiroNome)  @Html.DisplayFor(modelItem => item.Cliente.Apelido)
-                        </td>
-                        <td>
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                             <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                             <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -71,3 +71,4 @@
         }
     </tbody>
 </table>
+</div>

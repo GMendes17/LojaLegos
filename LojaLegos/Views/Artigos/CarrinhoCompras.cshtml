@@ -42,9 +42,10 @@
 </script>
 
 
-<div style="width: 50%; margin: auto;">
+<div style="width: 50%; margin: auto; margin-top: 40px;">
     <h1 style="text-align: left;">Carrinho de Compras</h1>
-   <table>
+    <br/>
+    <table>
     <tr>
         <th>Artigo</th>
         <th>Preço</th>
@@ -61,14 +62,14 @@
             var index = i;
 
             <tr id="linha-@artigo.Id" data-artigo-id="@artigo.Id">
-                <td>
+                <td style ="padding-right: 30px;">
                     <img src="~/Imagens/@Html.DisplayFor(modelItem => artigo.Foto)" alt="@artigo.Nome" style="width: 100px; height: 100px;" />
-                    @artigo.Nome
+                        <label style="padding-left:20px;">@artigo.Nome</label>
                 </td>
-                <td class="preco">
+                <td class="preco" style ="padding-right: 30px;">
                     @artigo.Preco.ToString("C2")
                 </td>
-                <td>
+                <td >
                     <input type="number" class="quantidade" id="Quantidade-@artigo.Id" name="Quantidade" min="1" value="1" onchange="atualizarPrecoTotal()" />
                 </td>
                 <td>
@@ -78,13 +79,13 @@
                     </button>
                 </td>
             </tr>
-
             precoTotal += artigo.Preco;
             TempData["precoTotal"] = precoTotal.ToString();
             
         }
         <tr>
             <td colspan="4">
+                <br/>
                 <p>Preço Total: <span id="precoTotal">@precoTotal.ToString("C2")</span></p>
             </td>
         </tr>

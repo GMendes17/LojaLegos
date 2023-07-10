@@ -6,7 +6,7 @@
 <div style="width:80%;margin:auto;">
     
 
-    <h4 style="padding-top:20px;">O Meu perfil</h4>
+    <h4 style="padding-top:20px;">Dados Pessoais</h4>
     <hr />
     <div class="row">
         <div class="col-md-4">
@@ -15,32 +15,32 @@
                 <input type="hidden" asp-for="Id" />
                 <input type="hidden" asp-for="UserId" />
                 <div class="form-group" style="padding-top:10px;">
-                    <label asp-for="PrimeiroNome" class="control-label"></label>
+                    <label asp-for="PrimeiroNome" class="control-label">Primeiro Nome</label>
                     <input asp-for="PrimeiroNome" class="form-control" />
                     <span asp-validation-for="PrimeiroNome" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="padding-top:10px;">
-                    <label asp-for="Apelido" class="control-label"></label>
+                    <label asp-for="Apelido" class="control-label">Apelido</label>
                     <input asp-for="Apelido" class="form-control" />
                     <span asp-validation-for="Apelido" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="padding-top:10px;">
-                    <label asp-for="Morada" class="control-label"></label>
+                    <label asp-for="Morada" class="control-label">Morada</label>
                     <input asp-for="Morada" class="form-control" />
                     <span asp-validation-for="Morada" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="padding-top:10px;">
-                    <label asp-for="CodPostal" class="control-label"></label>
+                    <label asp-for="CodPostal" class="control-label">Código Postal</label>
                     <input asp-for="CodPostal" class="form-control" />
                     <span asp-validation-for="CodPostal" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="padding-top:10px;">
-                    <label asp-for="Cidade" class="control-label"></label>
+                    <label asp-for="Cidade" class="control-label">Cidade</label>
                     <input asp-for="Cidade" class="form-control" />
                     <span asp-validation-for="Cidade" class="text-danger"></span>
                 </div>
                 <div class="form-group" style="padding-top:10px;">
-                    <label asp-for="País" class="control-label"></label>
+                    <label asp-for="País" class="control-label">País</label>
                     <input asp-for="País" class="form-control" />
                     <span asp-validation-for="País" class="text-danger"></span>
                 </div>
@@ -48,16 +48,18 @@
                     <input type="hidden" asp-for="Email" class="form-control" />
                 </div>
                 <div class="form-group" style="padding-top:10px;">
-                    <label asp-for="NrTelemovel" class="control-label"></label>
+                    <label asp-for="NrTelemovel" class="control-label">N.º de Telemóvel</label>
                     <input asp-for="NrTelemovel" class="form-control" />
                     <span asp-validation-for="NrTelemovel" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <input type="hidden" asp-for="NrContribuinte" class="form-control" />
                 </div>
+                <br />
                 <div class="form-group" style="padding-top:10px;">
                     <input type="submit" value="Guardar alterações" class="btn btn-primary" />
                 </div>
+                <br />
             </form>
         </div>
     </div>

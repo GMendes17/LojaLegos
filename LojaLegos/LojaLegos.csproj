@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Content Remove="Views\Artigos\Pagamento.cshtml" />
+    <Content Remove="wwwroot\Imagens\10875.jpg" />
   </ItemGroup>
 
   <ItemGroup>

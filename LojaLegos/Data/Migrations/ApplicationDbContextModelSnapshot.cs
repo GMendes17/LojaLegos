@@ -112,8 +112,8 @@ namespace LojaLegos.Migrations
                             Foto = "42004.jpg",
                             Nome = "Mini blackhoe Loader",
                             Nr = "42004",
-                            NrPecas = "123",
-                            Preco = 1222m,
+                            NrPecas = "97",
+                            Preco = 113.99m,
                             Stock = "5",
                             Tipo = "Technic"
                         },
@@ -125,10 +125,88 @@ namespace LojaLegos.Migrations
                             Foto = "42057.jpg",
                             Nome = "Ultralight Helicopter",
                             Nr = "42057",
-                            NrPecas = "125453",
-                            Preco = 100m,
+                            NrPecas = "105",
+                            Preco = 119.99m,
                             Stock = "99",
                             Tipo = "Technic"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ArmazemFK = 1,
+                            Detalhes = "",
+                            Foto = "60239.jpg",
+                            Nome = "Police Car",
+                            Nr = "60238",
+                            NrPecas = "94",
+                            Preco = 19.99m,
+                            Stock = "36",
+                            Tipo = "City"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ArmazemFK = 1,
+                            Detalhes = "",
+                            Foto = "60292.jpg",
+                            Nome = "Headquarters",
+                            Nr = "60292",
+                            NrPecas = "790",
+                            Preco = 64.99m,
+                            Stock = "47",
+                            Tipo = "City"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ArmazemFK = 1,
+                            Detalhes = "",
+                            Foto = "6157.jpg",
+                            Nome = "Zoo",
+                            Nr = "6157",
+                            NrPecas = "101",
+                            Preco = 49.99m,
+                            Stock = "93",
+                            Tipo = "Duplo"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ArmazemFK = 1,
+                            Detalhes = "",
+                            Foto = "10959.jpg",
+                            Nome = "Police Station",
+                            Nr = "10959",
+                            NrPecas = "40",
+                            Preco = 49.99m,
+                            Stock = "12",
+                            Tipo = "Duplo"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ArmazemFK = 1,
+                            Detalhes = "",
+                            Foto = "8831.jpg",
+                            Nome = "Atlas",
+                            Nr = "8831",
+                            NrPecas = "1",
+                            Preco = 9.99m,
+                            Stock = "68",
+                            Tipo = "Minifigures"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ArmazemFK = 1,
+                            Detalhes = "",
+                            Foto = "71011.jpg",
+                            Nome = "Field Worker",
+                            Nr = "71011",
+                            NrPecas = "1",
+                            Preco = 9.99m,
+                            Stock = "76",
+                            Tipo = "Minifigures"
                         });
                 });
 
@@ -384,21 +462,21 @@ namespace LojaLegos.Migrations
                         new
                         {
                             Id = "c",
-                            ConcurrencyStamp = "3d908369-b47d-44ac-be57-e00777bd89f0",
+                            ConcurrencyStamp = "d89c6fec-8a20-440b-b4ee-08b24f69b3ac",
                             Name = "Cliente",
                             NormalizedName = "CLIENTE"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "24da4093-017a-4124-9c83-bf6d1dfdc400",
+                            ConcurrencyStamp = "050f4368-5821-482a-8012-c28b20f766b2",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         },
                         new
                         {
                             Id = "f",
-                            ConcurrencyStamp = "0f4d0a0a-b068-4403-adc0-21c4230266c7",
+                            ConcurrencyStamp = "b071c2e6-c2c0-4cb9-a188-c4792d2563c6",
                             Name = "Funcionario",
                             NormalizedName = "FUNCIONARIO"
                         });

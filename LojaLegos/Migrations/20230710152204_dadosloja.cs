@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LojaLegos.Migrations
 {
-    public partial class estado : Migration
+    public partial class dadosloja : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -315,9 +315,9 @@ namespace LojaLegos.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "c", "3d908369-b47d-44ac-be57-e00777bd89f0", "Cliente", "CLIENTE" },
-                    { "f", "0f4d0a0a-b068-4403-adc0-21c4230266c7", "Funcionario", "FUNCIONARIO" },
-                    { "g", "24da4093-017a-4124-9c83-bf6d1dfdc400", "Gestor", "GESTOR" }
+                    { "c", "d89c6fec-8a20-440b-b4ee-08b24f69b3ac", "Cliente", "CLIENTE" },
+                    { "f", "b071c2e6-c2c0-4cb9-a188-c4792d2563c6", "Funcionario", "FUNCIONARIO" },
+                    { "g", "050f4368-5821-482a-8012-c28b20f766b2", "Gestor", "GESTOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -348,12 +348,17 @@ namespace LojaLegos.Migrations
             migrationBuilder.InsertData(
                 table: "Artigos",
                 columns: new[] { "Id", "ArmazemFK", "Detalhes", "Foto", "Nome", "Nr", "NrPecas", "Preco", "Stock", "Tipo" },
-                values: new object[] { 1, 1, "gosfdnaiudsf", "42004.jpg", "Mini blackhoe Loader", "42004", "123", 1222m, "5", "Technic" });
-
-            migrationBuilder.InsertData(
-                table: "Artigos",
-                columns: new[] { "Id", "ArmazemFK", "Detalhes", "Foto", "Nome", "Nr", "NrPecas", "Preco", "Stock", "Tipo" },
-                values: new object[] { 2, 1, "não voa", "42057.jpg", "Ultralight Helicopter", "42057", "125453", 100m, "99", "Technic" });
+                values: new object[,]
+                {
+                    { 1, 1, "gosfdnaiudsf", "42004.jpg", "Mini blackhoe Loader", "42004", "97", 113.99m, "5", "Technic" },
+                    { 2, 1, "não voa", "42057.jpg", "Ultralight Helicopter", "42057", "105", 119.99m, "99", "Technic" },
+                    { 3, 1, "", "60239.jpg", "Police Car", "60238", "94", 19.99m, "36", "City" },
+                    { 4, 1, "", "60292.jpg", "Headquarters", "60292", "790", 64.99m, "47", "City" },
+                    { 5, 1, "", "6157.jpg", "Zoo", "6157", "101", 49.99m, "93", "Duplo" },
+                    { 6, 1, "", "10959.jpg", "Police Station", "10959", "40", 49.99m, "12", "Duplo" },
+                    { 7, 1, "", "8831.jpg", "Atlas", "8831", "1", 9.99m, "68", "Minifigures" },
+                    { 8, 1, "", "71011.jpg", "Field Worker", "71011", "1", 9.99m, "76", "Minifigures" }
+                });
 
             migrationBuilder.InsertData(
                 table: "ArtigoEncomendas",

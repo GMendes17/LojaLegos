@@ -94,7 +94,7 @@ function createC(elem) {
     <div class="card h-100">
       <a asp-action="Details" asp-route-id="@item.Id" style = "text-decoration:none; color:black; ">
       <div class="card-body" style="border: 3px;">
-        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nr) @Html.DisplayFor(modelItem => item.Nome)</h5>
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nr) - @Html.DisplayFor(modelItem => item.Nome)</h5>
         <img src="~/Imagens/@Html.DisplayFor(modelItem => item.Foto)" class="card-img-top" alt="...">
         
         
@@ -102,7 +102,7 @@ function createC(elem) {
        </a>
 
                         <button class="card-footer mt-auto " onclick="createC(@Html.DisplayFor(modelItem => item.Id));alert('adicionado ao carrinho')" style="border:0px; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
-                            <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</p>
+                            <p style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;" src="~/Imagens/shopping-cart.png">   Adicionar ao carrinho</p>
                         </button>
       
      

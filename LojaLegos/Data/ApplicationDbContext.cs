@@ -36,10 +36,26 @@ namespace LojaLegos.Data
                 new Funcs { Id = 1, Nome = "Beatriz", NrTelemovel = "942942942", Email = "beatrizpatita@blabla.com", Cargo = "Funcionário", ChefeFK = 1 }
             );
             modelBuilder.Entity<Artigo>().HasData(
-                 new Artigo { Id = 1, Nr = "42004", Tipo = "Technic", Nome = "Mini blackhoe Loader", Preco = (Decimal)1222.00, Foto = "42004.jpg", NrPecas = "123", Detalhes = "gosfdnaiudsf", Stock = "5", ArmazemFK = 1 }
+                 new Artigo { Id = 1, Nr = "42004", Tipo = "Technic", Nome = "Mini blackhoe Loader", Preco = (Decimal)113.99, Foto = "42004.jpg", NrPecas = "97", Detalhes = "gosfdnaiudsf", Stock = "5", ArmazemFK = 1 }
                 );
             modelBuilder.Entity<Artigo>().HasData(
-                 new Artigo { Id = 2, Nr = "42057", Tipo = "Technic", Nome = "Ultralight Helicopter", Preco = (Decimal)100.00, Foto = "42057.jpg", NrPecas = "125453", Detalhes = "não voa", Stock = "99", ArmazemFK = 1 }
+                 new Artigo { Id = 2, Nr = "42057", Tipo = "Technic", Nome = "Ultralight Helicopter", Preco = (Decimal)119.99, Foto = "42057.jpg", NrPecas = "105", Detalhes = "não voa", Stock = "99", ArmazemFK = 1 }
+                 );
+            modelBuilder.Entity<Artigo>().HasData(
+                 new Artigo { Id = 3, Nr = "60238", Tipo = "City", Nome = "Police Car", Preco = (Decimal)19.99, Foto = "60239.jpg", NrPecas = "94", Detalhes = "", Stock = "36", ArmazemFK = 1 }
+                );
+            modelBuilder.Entity<Artigo>().HasData(
+                 new Artigo { Id = 4, Nr = "60292", Tipo = "City", Nome = "Headquarters", Preco = (Decimal)64.99, Foto = "60292.jpg", NrPecas = "790", Detalhes = "", Stock = "47", ArmazemFK = 1 }
+                 ); modelBuilder.Entity<Artigo>().HasData(
+                 new Artigo { Id = 5, Nr = "6157", Tipo = "Duplo", Nome = "Zoo", Preco = (Decimal)49.99, Foto = "6157.jpg", NrPecas = "101", Detalhes = "", Stock = "93", ArmazemFK = 1 }
+                );
+            modelBuilder.Entity<Artigo>().HasData(
+                 new Artigo { Id = 6, Nr = "10959", Tipo = "Duplo", Nome = "Police Station", Preco = (Decimal)49.99, Foto = "10959.jpg", NrPecas = "40", Detalhes = "", Stock = "12", ArmazemFK = 1 }
+                 ); modelBuilder.Entity<Artigo>().HasData(
+                 new Artigo { Id = 7, Nr = "8831", Tipo = "Minifigures", Nome = "Atlas", Preco = (Decimal)9.99, Foto = "8831.jpg", NrPecas = "1", Detalhes = "", Stock = "68", ArmazemFK = 1 }
+                );
+            modelBuilder.Entity<Artigo>().HasData(
+                 new Artigo { Id = 8, Nr = "71011", Tipo = "Minifigures", Nome = "Field Worker", Preco = (Decimal)9.99, Foto = "71011.jpg", NrPecas = "1", Detalhes = "", Stock = "76", ArmazemFK = 1 }
                  );
             modelBuilder.Entity<Armazem>().HasData(
                 new Armazem { Id =1 ,Local = "Tomar" , ResponsavelFK =1}

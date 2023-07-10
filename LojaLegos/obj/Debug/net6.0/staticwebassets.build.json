@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BlWs6rZBvhgL3PJSpueDVH+Sic5xwGUAMih8ywrFPYs=",
+  "Hash": "1SGHR8hC2lCc1uDX0nQTwdFSAU0LXJGDv0oYb2bjnK0=",
   "Source": "LojaLegos",
   "BasePath": "_content/LojaLegos",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Pedro\\source\\repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\Imagens\\10959.jpg",
+      "SourceId": "LojaLegos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Pedro\\source\\repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\",
+      "BasePath": "_content/LojaLegos",
+      "RelativePath": "Imagens/10959.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagens\\10959.jpg"
     },
     {
       "Identity": "C:\\Users\\Pedro\\source\\repos\\GMendes17\\LojaLegos\\LojaLegos\\wwwroot\\Imagens\\42004.jpg",

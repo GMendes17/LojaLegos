@@ -42,30 +42,30 @@ function f1(elem) {
                     <br />
                     <h4 style="padding-left:20px;">N.º  @Html.DisplayFor(model => model.Nr) </h4>
                     <br />
-                    <h4 style="padding-left:20px;">Peças : @Html.DisplayFor(model => model.NrPecas) </h4>
+                    <h4 style="padding-left:20px;">Peças: @Html.DisplayFor(model => model.NrPecas) </h4>
                     <br />
                     <br />
-                    <h3 style="padding-left:20px;">@Html.DisplayFor(model => model.Preco)€</h3>
+                    <h3 style="padding-left:20px;">Preço unitário: @Html.DisplayFor(model => model.Preco)€</h3>
                     <br />
                 @if(Int64.Parse(Model.Stock) > 0)
                 {
-                    <h5 style="padding-left:20px;color:green"><img style="align;padding-bottom:4px;" src="~/Imagens/accept.png">Produto Disponivel</h5>
+                    <h5 style="padding-left:20px;color:green"><img style="align;padding-bottom:4px;" src="~/Imagens/accept.png">Produto disponível</h5>
                 }
                 else
                 {
-                    <h5 style="padding-left:20px;">Produto indisponivel</h5>
+                    <h5 style="padding-left:20px;">Produto indisponível</h5>
                 }
-                
+                <br />
                 @if (SignInManager.IsSignedIn(User)){
                     <button  onclick="    f1(@Html.DisplayFor(model => model.Id)); alert('adicionado ao carrinho')"  style="width:100%;border-radius: 12px; border:1px white; padding:5px 0px ;background-color:rgb(253, 128, 36);margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
-                        
-                        <h3 style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;padding-left:5px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</h3>
+
+                        <h3 style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;padding-left:5px;" src="~/Imagens/shopping-cart.png"> Adicionar ao carrinho</h3>
                     </button>
                 }
                 else
                 {
                   <a style="width:100%;border:0px;border-radius: 12px; padding:5px 0px ;background-color:rgb(253, 128, 36)!important;margin-bottom:0px;color:white;" onmouseover="despinta(this)" onmouseout="pinta(this)">
-                        <h3 style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;padding-left:5px;" src="~/Imagens/shopping-cart.png">  adicionar ao carrinho</h3>
+                        <h3 style="margin-bottom: 0px;"> <img style="align;padding-bottom:4px;padding-left:5px;" src="~/Imagens/shopping-cart.png"> Adicionar ao carrinho</h3>
                     </a>
                      
                 }

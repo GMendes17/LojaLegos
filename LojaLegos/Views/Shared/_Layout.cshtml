@@ -18,7 +18,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3" style="margin: 0px !important;background-color:#fddd01; ">
             <div class="container-fluid">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LegoMania</a>
+                <a class="nav-link text-dark">LegoMania</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -68,7 +68,7 @@
                         @if (User.IsInRole("Cliente"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" style="float: right;" asp-area="" asp-controller="Encomendas" asp-action="Index">Minhas Encomendas</a>
+                                <a class="nav-link text-dark" style="float: right;" asp-area="" asp-controller="Encomendas" asp-action="Index">As Minhas Encomendas</a>
                             </li>
                         }
                         <li class="nav-item">
@@ -96,7 +96,7 @@
     
     <footer class=" footer " style="width:100% ! important;background-color: rgb(0, 89, 183);color:white;text-align:center; margin-top:25px; position :absolute;">
         
-            &copy; 2022 - LegoMania - Realizado por Gonçalo Mendes e Pedro Gaspar - Licenciatura Engenharia Informática - Desenvolvimento Web 
+            &copy; 2023 - LegoMania - Elaborado por Gonçalo Mendes e Pedro Gaspar - Licenciatura Engenharia Informática - Desenvolvimento Web 
       
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
