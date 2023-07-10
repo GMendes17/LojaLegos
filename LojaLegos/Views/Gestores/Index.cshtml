@@ -3,9 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div style="width : 80% ; margin:auto;">   
-<h1>Index</h1>
-
+<div style="width: 80%; margin: auto; margin-top: 40px;">
+    <h1>Lista de Gestores</h1>
+    <br />
     <p>
         <a asp-action="Create">Adicionar novo gestor</a>
     </p>
@@ -17,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NrTelemovel)
+                N.º de Telemóvel
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Foto)

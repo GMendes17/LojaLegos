@@ -3,15 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div style="width:80%;margin:auto;">
+<div style="width: 80%; margin: auto; margin-top: 40px;">
 <h1>Lista de Clientes</h1>
-
-
+    <br />
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PrimeiroNome)
+                Primeiro Nome
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Apelido)
@@ -20,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Morada)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CodPostal)
+                Código Postal
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cidade)
@@ -32,10 +31,10 @@
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NrTelemovel)
+                N.º de Telemóvel
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NrContribuinte)
+                N.º de Contribuinte
             </th>
             <th></th>
         </tr>
@@ -73,9 +72,7 @@
             <td>
                 @if (User.IsInRole("Gestor")) {
                  <text>
-                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                 <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                 <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                 <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
                  </text>
                     }
             </td>

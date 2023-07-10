@@ -40,13 +40,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapControllerRoute(
-    name: "CarrinhoCompras_Pagamento",
-    pattern: "Artigos/CarrinhoCompras/Pagamento",
-    defaults: new { controller = "EncomendasController", action = "Pagamento" }
-);
-
-
-app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Artigos}/{action=Index}/{id?}");
 app.MapRazorPages();

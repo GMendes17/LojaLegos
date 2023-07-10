@@ -155,6 +155,7 @@ namespace LojaLegos.Controllers
             return View(encomenda);
         }
 
+        [Authorize(Roles = "Gestor, Funcionario")]
 
         // GET: Encomendas/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -241,7 +242,7 @@ namespace LojaLegos.Controllers
             return View(encomenda);
         }
 
-
+        [Authorize(Roles = "Gestor, Funcionario")]
         // GET: Encomendas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

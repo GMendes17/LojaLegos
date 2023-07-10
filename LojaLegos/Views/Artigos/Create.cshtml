@@ -4,17 +4,15 @@
     ViewData["Title"] = "Create";
 }
 
-<div style="width : 80% ; margin:auto;">   
-<h1>Create</h1>
-
-<h4>Artigo</h4>
+<div style="width : 80% ; margin:auto; margin-top:40px;">   
+<h3>Criação de Artigo</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Nr" class="control-label"></label>
+                <label asp-for="Nr" class="control-label">N.º de Artigo</label>
                 <input asp-for="Nr" class="form-control" />
                 <span asp-validation-for="Nr" class="text-danger"></span>
             </div>
@@ -29,7 +27,7 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Preco" class="control-label"></label>
+                <label asp-for="Preco" class="control-label">Preço</label>
                 <input asp-for="Preco" class="form-control" />
                 <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
@@ -39,7 +37,7 @@
                 <span asp-validation-for="Foto" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NrPecas" class="control-label"></label>
+                <label asp-for="NrPecas" class="control-label">N.º de Peças</label>
                 <input asp-for="NrPecas" class="form-control" />
                 <span asp-validation-for="NrPecas" class="text-danger"></span>
             </div>
@@ -54,18 +52,16 @@
                 <span asp-validation-for="Stock" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ArmazemFK" class="control-label"></label>
+                <label asp-for="ArmazemFK" class="control-label">ID do Armazém</label>
                 <select asp-for="ArmazemFK" class ="form-control" asp-items="ViewBag.ArmazemFK"></select>
             </div>
+            <br/>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-primary">Voltar</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 </div>
 @section Scripts {

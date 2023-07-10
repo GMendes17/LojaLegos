@@ -1,49 +1,9 @@
 ﻿@model Encomenda
 
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Total" class="control-label"></label>
-                <input asp-for="Total" class="form-control" />
-                <span asp-validation-for="Total" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Data" class="control-label"></label>
-                <input asp-for="Data" class="form-control" />
-                <span asp-validation-for="Data" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <select asp-for="Estado" class="form-control">
-                    @if (Model.Estado == "pago")
-                    {
-                        <option value="pago">Pago</option>
-                        <option value="preparado">Preparado</option>
-
-                    }
-                    else if(Model.Estado == "preparado")
-                    {
-                        <option value="preparado">Preparado</option>
-                        <option value="expedido">Expedido</option>
-                    }
-                    else if (Model.Estado == "expedido")
-                    {
-                        <option value="expedido">Expedido</option>
-                    }
-
-                </select>
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClienteFK" class="control-label"></label>
-                <select asp-for="ClienteFK" class="form-control" asp-items="ViewBag.ClienteFK"></select>
-                <span asp-validation-for="ClienteFK" class="text-danger"></span>
-            </div>
-            <hr />
+    <div class="col-md-4" style="margin: auto; margin-top:40px;">
             <h4>Artigos Encomendados</h4>
+            <hr/>
             <table class="table">
                 <thead>
                     <tr>
@@ -69,13 +29,51 @@
                     
                 </tbody>
             </table>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <select asp-for="Estado" class="form-control">
+                    @if (Model.Estado == "pago")
+                    {
+                        <option value="pago">Pago</option>
+                        <option value="preparado">Preparado</option>
+
+                    }
+                    else if (Model.Estado == "preparado")
+                    {
+                        <option value="preparado">Preparado</option>
+                        <option value="expedido">Expedido</option>
+                    }
+                    else if (Model.Estado == "expedido")
+                    {
+                        <option value="expedido">Expedido</option>
+                    }
+
+                </select>
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClienteFK" class="control-label">ID do Cliente</label>
+                <select asp-for="ClienteFK" class="form-control" asp-items="ViewBag.ClienteFK"></select>
+                <span asp-validation-for="ClienteFK" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>

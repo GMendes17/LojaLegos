@@ -33,9 +33,9 @@
 
 
 
-<div name="pai" style="width:80%; margin:auto ;" >
+<div name="pai" style="width:80%; margin:auto ; margin-top:40px;" >
     <div>
-        <h4 style="margin-top: 15px;">Detalhes</h4>
+        <h3>Detalhes</h3>
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
@@ -48,7 +48,7 @@
                 Total :
             </dt>
             <dd class="col-sm-4">
-                @Html.DisplayFor(model => model.Total)
+                @Html.DisplayFor(model => model.Total)€
             </dd>
             <dt class="col-sm-2">
                 Data :
@@ -68,7 +68,7 @@
             <dd class="col-sm-4">
                 @Html.DisplayFor(model => model.Cliente.PrimeiroNome) @Html.DisplayFor(model => model.Cliente.Apelido)
             </dd>
-            
+            <dd><br /></dd>
             <dd class="col-sm-10">
                 <table class="table">
                     <thead>
@@ -92,6 +92,6 @@
     </div>
     <div>
         <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
-        <a asp-action="Index">Voltar à Lista</a>
+        <a asp-action="Index">Voltar</a>
     </div>
 </div>

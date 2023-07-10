@@ -3,10 +3,8 @@
 @{
     ViewData["Title"] = "Create";
 }
-<div style="width : 80% ; margin:auto;">   
-<h1>Create</h1>
-
-<h4>Armazem</h4>
+<div style="width : 80% ; margin:auto; margin-top:40px;">   
+<h3>Criação de Armazém</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,18 +16,16 @@
                 <span asp-validation-for="Local" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ResponsavelFK" class="control-label"></label>
+                <label asp-for="ResponsavelFK" class="control-label">ID do Responsável</label>
                 <select asp-for="ResponsavelFK" class ="form-control" asp-items="ViewBag.ResponsavelFK"></select>
             </div>
+            <br/>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-primary">Voltar</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 </div>
 

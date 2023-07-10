@@ -3,10 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div style="width : 80% ; margin:auto;">   
-<h1>Index</h1>
-
-
+<div style="width: 80%; margin: auto; margin-top: 40px;">
+    <h1>Lista de Funcionários</h1>
+    <br />
     <p>
         <a asp-action="Create">Adicionar novo funcionário</a>
     </p>
@@ -18,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NrTelemovel)
+                N.º de Telemóvel
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -48,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.Cargo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gestor.Id)
+                @Html.DisplayFor(modelItem => item.Gestor.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |

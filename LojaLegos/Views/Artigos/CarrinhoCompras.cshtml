@@ -78,15 +78,15 @@
                          
                     </button>
                 </td>
-            </tr>
-            precoTotal += artigo.Preco;
-            TempData["precoTotal"] = precoTotal.ToString();
-            
-        }
-        <tr>
+                </tr>
+                precoTotal += artigo.Preco;
+                TempData["precoTotal"] = precoTotal.ToString();
+
+            }
+            <tr>
             <td colspan="4">
                 <br/>
-                <p>Preço Total: <span id="precoTotal">@precoTotal.ToString("C2")</span></p>
+                    <p>Preço Total: <span id="precoTotal" asp-for="Total">@precoTotal.ToString("C2")</span></p>
             </td>
         </tr>
     }

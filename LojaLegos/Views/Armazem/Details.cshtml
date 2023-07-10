@@ -5,13 +5,13 @@
 }
 
 
-<div style="width:80%; margin: auto;">
+<div style="width:80%; margin: auto; margin-top:40px;">
     <div>
-        <h2 style=" margin-top:20px;">Armazem N.º @Html.DisplayFor(model => model.Id) </h2>
+        <h3>Armazém N.º @Html.DisplayFor(model => model.Id)</h3>
 
-        <h4>@Html.DisplayNameFor(model => model.Local) : @Html.DisplayFor(model => model.Local)</h4>
+        <h4>Local: @Html.DisplayFor(model => model.Local)</h4>
            
-        <h4>@Html.DisplayNameFor(model => model.Responsavel) : @Html.DisplayFor(model => model.Responsavel.Nome)</h4>
+        <h4>Responsável: @Html.DisplayFor(model => model.Responsavel.Nome)</h4>
         <br />
     <table class="table">
         <thead>
@@ -41,14 +41,14 @@
                     @Html.DisplayFor(modelItem => item.Stock)
                 </td>
                 <td>    
-                     <a href = "~/Artigos/Edit/@item.Id ">Edit</a> 
+                     <a href = "~/Artigos/Edit/@item.Id ">Editar</a> 
                 </td>
            </tr>   
     } 
          </tbody>
     </table>
-         <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-         <a asp-action="Index">Back to List</a>
+         <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+         <a asp-action="Index">Voltar</a>
 
     </div>
 </div>
