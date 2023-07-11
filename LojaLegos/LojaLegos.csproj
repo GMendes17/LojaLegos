@@ -23,6 +23,8 @@
     <Compile Remove="Migrations\20230625141418_chaveLigaçãoBd.Designer.cs" />
     <Compile Remove="Migrations\20230710152204_dadosloja.cs" />
     <Compile Remove="Migrations\20230710152204_dadosloja.Designer.cs" />
+    <Compile Remove="Migrations\20230711193636_roleseedAndLorem.cs" />
+    <Compile Remove="Migrations\20230711193636_roleseedAndLorem.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

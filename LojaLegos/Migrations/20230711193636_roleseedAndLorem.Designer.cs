@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaLegos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230711191957_roleSeeds")]
-    partial class roleSeeds
+    [Migration("20230711193636_roleseedAndLorem")]
+    partial class roleseedAndLorem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -110,7 +110,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 1,
                             ArmazemFK = 1,
-                            Detalhes = "gosfdnaiudsf",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "42004.jpg",
                             Nome = "Mini blackhoe Loader",
                             Nr = "42004",
@@ -123,7 +123,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 2,
                             ArmazemFK = 1,
-                            Detalhes = "não voa",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "42057.jpg",
                             Nome = "Ultralight Helicopter",
                             Nr = "42057",
@@ -136,7 +136,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 3,
                             ArmazemFK = 1,
-                            Detalhes = "",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "60239.jpg",
                             Nome = "Police Car",
                             Nr = "60238",
@@ -149,7 +149,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 4,
                             ArmazemFK = 1,
-                            Detalhes = "",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "60292.jpg",
                             Nome = "Headquarters",
                             Nr = "60292",
@@ -162,7 +162,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 5,
                             ArmazemFK = 1,
-                            Detalhes = "",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "6157.jpg",
                             Nome = "Zoo",
                             Nr = "6157",
@@ -175,7 +175,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 6,
                             ArmazemFK = 1,
-                            Detalhes = "",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "10959.jpg",
                             Nome = "Police Station",
                             Nr = "10959",
@@ -188,7 +188,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 7,
                             ArmazemFK = 1,
-                            Detalhes = "",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "8831.jpg",
                             Nome = "Atlas",
                             Nr = "8831",
@@ -201,7 +201,7 @@ namespace LojaLegos.Migrations
                         {
                             Id = 8,
                             ArmazemFK = 1,
-                            Detalhes = "",
+                            Detalhes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut eros risus. Morbi dignissim in dui in volutpat. Proin at mauris vitae risus",
                             Foto = "71011.jpg",
                             Nome = "Field Worker",
                             Nr = "71011",
@@ -349,7 +349,7 @@ namespace LojaLegos.Migrations
                             Id = 1,
                             ClienteFK = 1,
                             Data = new DateTime(2023, 6, 25, 13, 58, 56, 0, DateTimeKind.Unspecified),
-                            Estado = "expedido",
+                            Estado = "pago",
                             Total = "3000"
                         });
                 });
@@ -472,21 +472,21 @@ namespace LojaLegos.Migrations
                         new
                         {
                             Id = "c",
-                            ConcurrencyStamp = "4c657d71-af54-4aa9-bad7-7c59e9d56fbe",
+                            ConcurrencyStamp = "c1b9196c-3b8a-4d0d-9b4c-f2de324a3931",
                             Name = "Cliente",
                             NormalizedName = "CLIENTE"
                         },
                         new
                         {
                             Id = "g",
-                            ConcurrencyStamp = "dde4332a-c8e1-4485-acd7-0e81acf260ac",
+                            ConcurrencyStamp = "9b196735-28af-46ef-a377-cc96875ce99a",
                             Name = "Gestor",
                             NormalizedName = "GESTOR"
                         },
                         new
                         {
                             Id = "f",
-                            ConcurrencyStamp = "2e87af43-f51c-44cd-b475-88860b0873dc",
+                            ConcurrencyStamp = "69e2aa7a-db54-46d7-bcf8-c593e2f338cd",
                             Name = "Funcionario",
                             NormalizedName = "FUNCIONARIO"
                         });
@@ -701,15 +701,15 @@ namespace LojaLegos.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bd96693c-c916-4a11-a26a-2c704d1f0623",
+                            ConcurrencyStamp = "935eeebd-59c8-4966-a292-d2dba0dadcf1",
                             Email = "cliente2@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = true,
                             NormalizedEmail = "CLIENTE2@GMAIL.COM",
                             NormalizedUserName = "CLIENTE2@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEyRx63lQ6mT2pVUsWDFmErzB22cKY4P+WYDasX8cNmEwWOJcHwRhgcU0Y1tCz2GMw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOYczKQqE1HOoOjN+Kjus8JxtwKu5ve7HR3l0HsfbjQ1M/vD18qeS+UazaukaYaRGA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e11e5506-b95c-4975-8aa9-f3f0a478ab9d",
+                            SecurityStamp = "a9313994-b74a-47f5-bba0-8e721e5a4917",
                             TwoFactorEnabled = false,
                             UserName = "cliente2@gmail.com"
                         },
@@ -717,15 +717,15 @@ namespace LojaLegos.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "543b3402-bfe2-4b40-9464-6b5d7372ccda",
+                            ConcurrencyStamp = "4f58c65d-03ea-4c21-9bd9-45cfd8995c83",
                             Email = "beatrizpatita@blabla.com",
                             EmailConfirmed = true,
                             LockoutEnabled = true,
                             NormalizedEmail = "BEATRIZPATITA@BLABLA.COM",
                             NormalizedUserName = "BEATRIZPATITA@BLABLA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBgxOv+wVnE6ItddeZXlVI/eN1SQMA76HcFO6LA250zpGgoH0Oz8epQNJavRAm9HdA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKNdTfKG8vH7N0JO8CLUCfliX6+wX3HbUbE4sk/LhaUUk5Rf3qsfKf3rl+INJ/l5yQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c7326415-36cc-487c-adc4-95056afc06a5",
+                            SecurityStamp = "8c427cb7-0593-422f-a38f-66b77e4c451a",
                             TwoFactorEnabled = false,
                             UserName = "beatrizpatita@blabla.com"
                         },
@@ -733,15 +733,15 @@ namespace LojaLegos.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9ea3c5f3-4855-4fde-9ce8-e1b87e11d5db",
+                            ConcurrencyStamp = "0e8f32cd-f6e8-4d7a-8170-80da2e827035",
                             Email = "Luisfreitas@blabla.com",
                             EmailConfirmed = true,
                             LockoutEnabled = true,
                             NormalizedEmail = "LUISFREITAS@BLABLA.COM",
                             NormalizedUserName = "LUISFREITAS@BLABLA.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEK5F+W1m/i1rhfC5Lx+kNKZbeV4jEgDdD1OjEBHBnmywtXG7XTi5Pwfv/XCNL41Wdg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECh5t0/wJeAFpgSGezVU9TlwCfNDyKca0hMujBVjw71PsQgN8dqQ7gqun6YqafRNpQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3ef63632-f763-4834-b2e5-8c52efc4e40f",
+                            SecurityStamp = "294997c6-d6fb-4570-b414-3e549363b068",
                             TwoFactorEnabled = false,
                             UserName = "Luisfreitas@blabla.com"
                         });

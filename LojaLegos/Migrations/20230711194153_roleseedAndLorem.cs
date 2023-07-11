@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LojaLegos.Migrations
 {
-    public partial class roleSeeds : Migration
+    public partial class roleseedAndLorem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -318,9 +318,9 @@ namespace LojaLegos.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "c", "4c657d71-af54-4aa9-bad7-7c59e9d56fbe", "Cliente", "CLIENTE" },
-                    { "f", "2e87af43-f51c-44cd-b475-88860b0873dc", "Funcionario", "FUNCIONARIO" },
-                    { "g", "dde4332a-c8e1-4485-acd7-0e81acf260ac", "Gestor", "GESTOR" }
+                    { "c", "78368bff-e7fe-4e7f-81af-851a7ac2a750", "Cliente", "CLIENTE" },
+                    { "f", "e9ddb7dc-83ef-4c70-aecc-f058d3bd5e81", "Funcionario", "FUNCIONARIO" },
+                    { "g", "49b60ac9-795a-4704-97a6-369562b9c824", "Gestor", "GESTOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -328,9 +328,9 @@ namespace LojaLegos.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "bd96693c-c916-4a11-a26a-2c704d1f0623", "ApplicationUser", "cliente2@gmail.com", true, true, null, "CLIENTE2@GMAIL.COM", "CLIENTE2@GMAIL.COM", "AQAAAAEAACcQAAAAEEyRx63lQ6mT2pVUsWDFmErzB22cKY4P+WYDasX8cNmEwWOJcHwRhgcU0Y1tCz2GMw==", null, false, "e11e5506-b95c-4975-8aa9-f3f0a478ab9d", false, "cliente2@gmail.com" },
-                    { "2", 0, "543b3402-bfe2-4b40-9464-6b5d7372ccda", "ApplicationUser", "beatrizpatita@blabla.com", true, true, null, "BEATRIZPATITA@BLABLA.COM", "BEATRIZPATITA@BLABLA.COM", "AQAAAAEAACcQAAAAEBgxOv+wVnE6ItddeZXlVI/eN1SQMA76HcFO6LA250zpGgoH0Oz8epQNJavRAm9HdA==", null, false, "c7326415-36cc-487c-adc4-95056afc06a5", false, "beatrizpatita@blabla.com" },
-                    { "3", 0, "9ea3c5f3-4855-4fde-9ce8-e1b87e11d5db", "ApplicationUser", "Luisfreitas@blabla.com", true, true, null, "LUISFREITAS@BLABLA.COM", "LUISFREITAS@BLABLA.COM", "AQAAAAEAACcQAAAAEK5F+W1m/i1rhfC5Lx+kNKZbeV4jEgDdD1OjEBHBnmywtXG7XTi5Pwfv/XCNL41Wdg==", null, false, "3ef63632-f763-4834-b2e5-8c52efc4e40f", false, "Luisfreitas@blabla.com" }
+                    { "1", 0, "c9f12f51-6937-4664-8fb8-55cb77cec00c", "ApplicationUser", "cliente2@gmail.com", true, true, null, "CLIENTE2@GMAIL.COM", "CLIENTE2@GMAIL.COM", "AQAAAAEAACcQAAAAEB8ri/Jh9mJOfgyIYn44D2tLdAg8PpADgmkyapOOCfo6H6uRgx5Zc6S5Gc87Z4C0yg==", null, false, "faebdb29-0f35-40cd-861d-d74f8026b474", false, "cliente2@gmail.com" },
+                    { "2", 0, "61bf67bc-3409-4a64-9bc2-199f48ee7ea9", "ApplicationUser", "beatrizpatita@blabla.com", true, true, null, "BEATRIZPATITA@BLABLA.COM", "BEATRIZPATITA@BLABLA.COM", "AQAAAAEAACcQAAAAEPM4KGDyIOFfCJ/JKmZQl7YmbJotfYDeoOVoH5T0VFVDzKKCPL9H+6nfFo8xHbejeQ==", null, false, "4584002c-38ec-4cef-8bd1-81bfd720ee25", false, "beatrizpatita@blabla.com" },
+                    { "3", 0, "5c616fb9-cf87-4bd6-b15c-17fd86747add", "ApplicationUser", "Luisfreitas@blabla.com", true, true, null, "LUISFREITAS@BLABLA.COM", "LUISFREITAS@BLABLA.COM", "AQAAAAEAACcQAAAAEBRJjKhPesIXxPsEKpjMobgVFJQ4rf8Leo4UEzb5mmWxmwDx7/qzLhYeDx2jdrG2bw==", null, false, "2304439b-af6f-4eb3-8ad2-a1fed07be74d", false, "Luisfreitas@blabla.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -356,7 +356,7 @@ namespace LojaLegos.Migrations
             migrationBuilder.InsertData(
                 table: "Encomendas",
                 columns: new[] { "Id", "ClienteFK", "Data", "Estado", "Total" },
-                values: new object[] { 1, 1, new DateTime(2023, 6, 25, 13, 58, 56, 0, DateTimeKind.Unspecified), "expedido", "3000" });
+                values: new object[] { 1, 1, new DateTime(2023, 6, 25, 13, 58, 56, 0, DateTimeKind.Unspecified), "pago", "3000" });
 
             migrationBuilder.InsertData(
                 table: "Funcionarios",
@@ -373,8 +373,8 @@ namespace LojaLegos.Migrations
                 columns: new[] { "Id", "ArmazemFK", "Detalhes", "Foto", "Nome", "Nr", "NrPecas", "Preco", "Stock", "Tipo" },
                 values: new object[,]
                 {
-                    { 1, 1, "gosfdnaiudsf", "42004.jpg", "Mini blackhoe Loader", "42004", "97", 113.99m, "5", "Technic" },
-                    { 2, 1, "não voa", "42057.jpg", "Ultralight Helicopter", "42057", "105", 119.99m, "99", "Technic" },
+                    { 1, 1, "", "42004.jpg", "Mini blackhoe Loader", "42004", "97", 113.99m, "5", "Technic" },
+                    { 2, 1, "l", "42057.jpg", "Ultralight Helicopter", "42057", "105", 119.99m, "99", "Technic" },
                     { 3, 1, "", "60239.jpg", "Police Car", "60238", "94", 19.99m, "36", "City" },
                     { 4, 1, "", "60292.jpg", "Headquarters", "60292", "790", 64.99m, "47", "City" },
                     { 5, 1, "", "6157.jpg", "Zoo", "6157", "101", 49.99m, "93", "Duplo" },

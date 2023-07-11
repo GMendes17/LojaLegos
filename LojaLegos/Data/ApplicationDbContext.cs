@@ -97,10 +97,10 @@ namespace LojaLegos.Data
                 new Funcs { Id = 1, Nome = "Beatriz", NrTelemovel = "942942942", Email = "beatrizpatita@blabla.com", Cargo = "Funcionário", ChefeFK = 1, UserId = "2" }
             );
             modelBuilder.Entity<Artigo>().HasData(
-                 new Artigo { Id = 1, Nr = "42004", Tipo = "Technic", Nome = "Mini blackhoe Loader", Preco = (Decimal)113.99, Foto = "42004.jpg", NrPecas = "97", Detalhes = "gosfdnaiudsf", Stock = "5", ArmazemFK = 1 }
+                 new Artigo { Id = 1, Nr = "42004", Tipo = "Technic", Nome = "Mini blackhoe Loader", Preco = (Decimal)113.99, Foto = "42004.jpg", NrPecas = "97", Detalhes = "", Stock = "5", ArmazemFK = 1 }
                 );
             modelBuilder.Entity<Artigo>().HasData(
-                 new Artigo { Id = 2, Nr = "42057", Tipo = "Technic", Nome = "Ultralight Helicopter", Preco = (Decimal)119.99, Foto = "42057.jpg", NrPecas = "105", Detalhes = "não voa", Stock = "99", ArmazemFK = 1 }
+                 new Artigo { Id = 2, Nr = "42057", Tipo = "Technic", Nome = "Ultralight Helicopter", Preco = (Decimal)119.99, Foto = "42057.jpg", NrPecas = "105", Detalhes = "l", Stock = "99", ArmazemFK = 1 }
                  );
             modelBuilder.Entity<Artigo>().HasData(
                  new Artigo { Id = 3, Nr = "60238", Tipo = "City", Nome = "Police Car", Preco = (Decimal)19.99, Foto = "60239.jpg", NrPecas = "94", Detalhes = "", Stock = "36", ArmazemFK = 1 }
@@ -128,7 +128,7 @@ namespace LojaLegos.Data
                new ArtigoEncomenda { ArtigoId = 2, EncomendaId = 1, Quantidade = 26 }
                 );
             modelBuilder.Entity<Encomenda>().HasData(
-              new Encomenda {Id =1 , ClienteFK = 1, Total = "3000" , Data = new DateTime(2023, 06, 25, 13, 58, 56) , Estado = "expedido" }
+              new Encomenda {Id =1 , ClienteFK = 1, Total = "3000" , Data = new DateTime(2023, 06, 25, 13, 58, 56) , Estado = "pago" }
                );
 
             modelBuilder.Entity<ArtigoEncomenda>()
