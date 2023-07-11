@@ -31,6 +31,10 @@
     <Content Remove="Views\Artigos\Pagamento.cshtml" />
     <Content Remove="Views\Clientes\MeuPerfil.cshtml" />
     <Content Remove="wwwroot\Imagens\10875.jpg" />
+    <Content Remove="wwwroot\Imagens\17.jpg" />
+    <Content Remove="wwwroot\Imagens\42004.jpg" />
+    <Content Remove="wwwroot\Imagens\55.jpg" />
+    <Content Remove="wwwroot\Imagens\555.jpg" />
   </ItemGroup>
 
   <ItemGroup>
