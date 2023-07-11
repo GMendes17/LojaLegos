@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pedro\\Desktop\\LEI\\3ano\\Dweb\\LojaLegos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {}
+    "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pedro\\Desktop\\LEI\\3ano\\Dweb\\LojaLegos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {
+    "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pedro\\Desktop\\LEI\\3ano\\Dweb\\LojaLegos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+        "projectUniqueName": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
         "projectName": "LojaLegos",
-        "projectPath": "C:\\Users\\Pedro\\Desktop\\LEI\\3ano\\Dweb\\LojaLegos\\GMendes17\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
-        "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pedro\\Desktop\\LEI\\3ano\\Dweb\\LojaLegos\\GMendes17\\LojaLegos\\LojaLegos\\obj\\",
+        "projectPath": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\LojaLegos.csproj",
+        "packagesPath": "C:\\Users\\gonca\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gonca\\Desktop\\LojaLegos\\LojaLegos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gonca\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
