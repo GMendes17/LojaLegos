@@ -16,6 +16,8 @@ namespace LojaLegos.Models
 
         public string Cargo { get; set; }
 
+        public string UserId { get; set; }
+
 
         [ForeignKey(nameof(Gestor))]
         public int ChefeFK { get; set; }

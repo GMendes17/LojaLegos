@@ -46,9 +46,11 @@ function createC(elem) {
   $.post("/Artigos/CoockieCarrinhoCompras", { num : elem });
 }
 
-</script>
 
-<div class=" pai" style="width: 100%;">
+</script>
+   @* Menu de compra de artigos com um menu lateral onde é possivel escolher o Tipo do lego *@
+   @* No caso de ser gestor ainda aparece a função de adicionar um novo lego (Artigos/create)*@
+ <div class=" pai" style="width: 100%;">
 <div class="row" id="navbar" >
   <div class="col-sm-2" style="width:100%">
     <nav class ="navbar " style=" background-color: rgb(0, 115, 183);width:100%;" >
@@ -83,7 +85,7 @@ function createC(elem) {
 </div>
 </div>
 
-
+@* Criação de vário cards , em cada um deles é possivel clicar e viajar para os detalhes*@
 <div class="col-sm-8" id="mosaico">
 <div class="row row-cols-1 row-cols-md-4 g-4" style="padding-top: 20px ;padding-left:25px;padding-bottom: 150px; ">
 @foreach (var item in Model){

@@ -26,6 +26,7 @@ namespace LojaLegos.Controllers
 
 
         [HttpPost]
+        //permite passar as quantidades para um tempdata
         public ActionResult SetArtigosQuantidades(string artigosQuantidades)
         {
             TempData["ArtigosQuantidades"] = artigosQuantidades;

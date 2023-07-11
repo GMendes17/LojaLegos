@@ -9,7 +9,8 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        @*valor para passar para o controller do artigos*@
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nr" class="control-label">N.º de Artigo</label>
@@ -31,11 +32,11 @@
                 <input asp-for="Preco" class="form-control" />
                 <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Foto" class="control-label"></label>
-                <input asp-for="Foto" class="form-control" />
-                <span asp-validation-for="Foto" class="text-danger"></span>
-            </div>
+
+            @*este foto é o ficheiro da foto e não a string a ser guardada na bd*@
+                <div class="form-group">
+                    <input type="file" name="foto" class="form-control" accept=".jpg,.png" multiple="multiple" />
+                </div>
             <div class="form-group">
                 <label asp-for="NrPecas" class="control-label">N.º de Peças</label>
                 <input asp-for="NrPecas" class="form-control" />

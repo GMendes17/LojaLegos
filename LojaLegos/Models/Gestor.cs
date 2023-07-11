@@ -19,9 +19,11 @@ namespace LojaLegos.Models
 
         public string Foto { get; set; }
 
-        public string Email { get; set; }   
+        public string Email { get; set; }
 
         public string Cargo { get; set; }
+
+        public string UserId { get; set; }
 
         public ICollection<Funcs> Funcionarios { get; set; }
 

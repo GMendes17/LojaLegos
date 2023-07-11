@@ -5,8 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LojaLegos.Data
 {
+
+    public class ApplicationUser : IdentityUser { }
+
     public class ApplicationDbContext : IdentityDbContext
     {
+      
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -24,16 +28,73 @@ namespace LojaLegos.Data
                 new IdentityRole { Id = "f", Name = "Funcionario", NormalizedName = "FUNCIONARIO" }
             );
 
-            modelBuilder.Entity<Cliente>().HasData(
+            var hasher = new PasswordHasher<ApplicationUser>();
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
+                {
+                    Id = "1",
+                    UserName = "cliente2@gmail.com",
+                    NormalizedUserName = "CLIENTE2@GMAIL.COM",
+                    Email = "cliente2@gmail.com",
+                    NormalizedEmail = "CLIENTE2@GMAIL.COM",
+                    PasswordHash = hasher.HashPassword(null, "@Cliente2"),
+                    EmailConfirmed = true,
+                    LockoutEnabled = true,
+                    SecurityStamp = Guid.NewGuid().ToString()
+                },
+                new ApplicationUser
+                {
+                    Id = "2",
+                    UserName = "beatrizpatita@blabla.com",
+                    NormalizedUserName = "BEATRIZPATITA@BLABLA.COM",
+                    Email = "beatrizpatita@blabla.com",
+                    NormalizedEmail = "BEATRIZPATITA@BLABLA.COM",
+                    PasswordHash = hasher.HashPassword(null, "@Func1"),
+                    EmailConfirmed = true,
+                    LockoutEnabled = true,
+                    SecurityStamp = Guid.NewGuid().ToString()
+                },
+                new ApplicationUser
+                {
+                    Id = "3",
+                    UserName = "Luisfreitas@blabla.com",
+                    NormalizedUserName = "LUISFREITAS@BLABLA.COM",
+                    Email = "Luisfreitas@blabla.com",
+                    NormalizedEmail = "LUISFREITAS@BLABLA.COM",
+                    PasswordHash = hasher.HashPassword(null, "@Gestor1"),
+                    EmailConfirmed = true,
+                    LockoutEnabled = true,
+                    SecurityStamp = Guid.NewGuid().ToString()
+                });
+
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+               new IdentityUserRole<string>
+               {
+                   RoleId = "g",
+                   UserId = "3"
+               },
+               new IdentityUserRole<string>
+               {
+                   RoleId = "f",
+                   UserId = "2"
+               },
+               new IdentityUserRole<string>
+               {
+                   RoleId = "c",
+                   UserId = "1"
+               });
+
+
+           modelBuilder.Entity<Cliente>().HasData(
                 new Cliente { Id = 1, PrimeiroNome = "Gonçalo", Apelido = "Mendes", Morada = "Rua...", CodPostal = "2660-284", Cidade = "Santo António dos Cavaleiros", País = "Portugal", Email = "goncalomendes@sapo.pt", NrTelemovel = "941941941", NrContribuinte = "412414141" ,UserId = "1" }
             );
 
             modelBuilder.Entity<Gestor>().HasData(
-                new Gestor { Id = 1, Nome = "Luís Freitas", NrTelemovel = "943943943", Foto = "", Email = "luisfreitas@blabla.com", Cargo = "Gestor" }
+                new Gestor { Id = 1, Nome = "Luís Freitas", NrTelemovel = "943943943", Foto = "", Email = "luisfreitas@blabla.com", Cargo = "Gestor" , UserId = "3" }
             );
 
             modelBuilder.Entity<Funcs>().HasData(
-                new Funcs { Id = 1, Nome = "Beatriz", NrTelemovel = "942942942", Email = "beatrizpatita@blabla.com", Cargo = "Funcionário", ChefeFK = 1 }
+                new Funcs { Id = 1, Nome = "Beatriz", NrTelemovel = "942942942", Email = "beatrizpatita@blabla.com", Cargo = "Funcionário", ChefeFK = 1, UserId = "2" }
             );
             modelBuilder.Entity<Artigo>().HasData(
                  new Artigo { Id = 1, Nr = "42004", Tipo = "Technic", Nome = "Mini blackhoe Loader", Preco = (Decimal)113.99, Foto = "42004.jpg", NrPecas = "97", Detalhes = "gosfdnaiudsf", Stock = "5", ArmazemFK = 1 }

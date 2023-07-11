@@ -21,10 +21,13 @@
     <Compile Remove="Migrations\20230625131107_NewDataBase.Designer.cs" />
     <Compile Remove="Migrations\20230625141418_chaveLigaçãoBd.cs" />
     <Compile Remove="Migrations\20230625141418_chaveLigaçãoBd.Designer.cs" />
+    <Compile Remove="Migrations\20230710152204_dadosloja.cs" />
+    <Compile Remove="Migrations\20230710152204_dadosloja.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Views\Artigos\Pagamento.cshtml" />
+    <Content Remove="Views\Clientes\MeuPerfil.cshtml" />
     <Content Remove="wwwroot\Imagens\10875.jpg" />
   </ItemGroup>
 

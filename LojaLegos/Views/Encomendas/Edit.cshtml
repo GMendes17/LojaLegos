@@ -13,6 +13,7 @@
                 </thead>
                
                 <tbody>
+                    @* mostar os ids dos artigos e as suas respetivas quantidades*@
                     @foreach (var artigoEncomenda in Model.ArtigoEncomendas.Where(ae => ae.EncomendaId == Model.Id))
                         {
                             <tr>
@@ -42,6 +43,7 @@
                 <input asp-for="Data" class="form-control" />
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
+            @*dropdown que permite escolher entre pago / preparado e expedido*@
             <div class="form-group">
                 <label asp-for="Estado" class="control-label"></label>
                 <select asp-for="Estado" class="form-control">

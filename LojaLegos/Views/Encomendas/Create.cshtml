@@ -1,6 +1,8 @@
 ﻿@model LojaLegos.Models.Encomenda
 
 @{
+
+    @* dados do controller para a view*@
     ViewData["Title"] = "Pagamento";
     var precoTotal = TempData["precoTotal"];
     var teste = TempData["ArtigosQuantidades"];
@@ -15,7 +17,7 @@
 
 <h1 style=" padding-left: 380px; padding-top: 10px;" >Pagamento</h1>
 <hr />
-
+@*coloca os dados nos campos certos de forma a simular uma fatura*@
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <div class="payment-section">
@@ -68,6 +70,7 @@
                     <input type="hidden" name="ArtQuant" value="@teste" />
                 </div>
 
+                @*cliente tem q escolher uma forma de pagamento*@
                 <div class="payment-methods">
                     <div class="payment-methods-box">
                         <h4 class="payment-methods-title">Método de Pagamento</h4>

@@ -1,4 +1,5 @@
-﻿@model LojaLegos.Models.Encomenda
+﻿@using LojaLegos.Models;
+@model LojaLegos.Models.Encomenda
 
 <style>
 
@@ -91,7 +92,7 @@
         </dl>
     </div>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+        
         <a asp-action="Index">Voltar</a>
     </div>
 </div>

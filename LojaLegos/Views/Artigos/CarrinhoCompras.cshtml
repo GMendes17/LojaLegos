@@ -7,6 +7,7 @@
 }
 
 <script>
+    //envia os respetivas quantidades de cada artigo para o encomendas
     function enviarDados(event) {
         event.preventDefault(); // Impede o envio do formulário no momento
 
@@ -52,7 +53,7 @@
         <th>Quantidade</th>
         <th></th>
     </tr>
-
+    @*mostra todos os artigos que estão nos cookies*@
     @if (Model != null && Model.Count > 0)
     {
         decimal precoTotal = 0;
@@ -99,7 +100,8 @@
         </tr>
     }
 </table>
-
+    
+    @* se o utlizador estiver com a conta iniciada poderá efetuar a compra caso contrario terá que se registar ou fazer login*@
     @if (SignInManager.IsSignedIn(User))
     {
         <form id="formPagamento" method="post" action=" @Url.Action("Create","Encomendas")" onsubmit="enviarDados(event)">
@@ -119,16 +121,15 @@
             </a>
         </button>
        
-
     }
 
-             
-            
+                        
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 
+    @* esta função vai buscar os valores dos cookies *@
     function obterValorCookie(nome) {
         var cookies = document.cookie.split("; ");
         for (var i = 0; i < cookies.length; i++) {
@@ -144,6 +145,10 @@
         return "";
     }
 
+    
+    @* remove os artigos do carrinho
+    para isso terá tambem que atualizar ocookie , o preço
+    e verificar se o carrinho nao está vazio*@
    function removerArtigo(artigoId) {
     
     var linha = document.getElementById("linha-" + artigoId);
@@ -153,7 +158,8 @@
     verificarCarrinhoVazio();
     
 }
-
+    
+    //verifica os valores que estão no carrinho da view e refaz o cookie
    function atualizarCookie() {
     var ids = [];
     var rows = document.getElementsByTagName("tr");
@@ -178,6 +184,7 @@
     location.reload(); // Recarrega a página para atualizar o carrinho e o preço total
    }
 
+   //corre os artigos da tabela e faz o calculo do preço total
     function atualizarPrecoTotal() {
         var precoTotal = 0;
         var rows = document.getElementsByTagName("tr");
@@ -196,6 +203,8 @@
         document.getElementById("precoTotal").textContent = precoTotal.toLocaleString("pt-PT", { style: "currency", currency: "EUR" });
     }
 
+    //veriica se a tabela com os artigos tem algum artigo
+    //se não tiver mostra que o carrinho está vazio
     function verificarCarrinhoVazio() {
         var rows = document.getElementsByTagName("tr");
         var carrinhoVazio = true;
@@ -223,6 +232,7 @@
         }
     }
 
+    //esta função vai buscar os artigos presentes no cookie
     function obterArtigosCarrinho() {
     var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)carrinho\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     if (cookieValue) {

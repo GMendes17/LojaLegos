@@ -9,16 +9,19 @@ using LojaLegos.Data;
 using LojaLegos.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using Microsoft.AspNetCore.Hosting;
 
 namespace LojaLegos.Controllers
 {
     public class ArtigosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ArtigosController(ApplicationDbContext context)
+        public ArtigosController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
 
@@ -137,14 +140,30 @@ namespace LojaLegos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nr,Tipo,Nome,Preco,Foto,NrPecas,Detalhes,Stock,ArmazemFK")] Artigo artigo)
+        public async Task<IActionResult> Create([Bind("Id,Nr,Tipo,Nome,Preco,Foto,NrPecas,Detalhes,Stock,ArmazemFK")] Artigo artigo, IFormFile foto)
         {
+
+            /**
+             recebe os valores da view , o valor da foto que irá ser guardado na bd passa a ser o numero de artigo mais a extensão ".jpg"
+             
+             */
+
             if (ModelState.IsValid)
             {
+                artigo.Foto = artigo.Nr + ".jpg";
                 _context.Add(artigo);
+
+                string nomeLocalizacaoFicheiro = Path.Combine(_webHostEnvironment.WebRootPath, "Imagens");
+                Directory.CreateDirectory(nomeLocalizacaoFicheiro); 
+
+                string nomeDaFoto = Path.Combine(nomeLocalizacaoFicheiro, artigo.Foto);
+                using var stream = new FileStream(nomeDaFoto, FileMode.Create);
+                await foto.CopyToAsync(stream);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["ArmazemFK"] = new SelectList(_context.Armazem, "Id", "Id", artigo.ArmazemFK);
             return View(artigo);
         }
