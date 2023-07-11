@@ -175,6 +175,7 @@ namespace LojaLegos.Controllers
                 return NotFound();
             }
 
+
             var artigo = await _context.Artigos.FindAsync(id);
             if (artigo == null)
             {
@@ -186,7 +187,7 @@ namespace LojaLegos.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nr,Tipo,Nome,Preco,Foto,NrPecas,Detalhes,Stock,ArmazemFK")] Artigo artigo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nr,Tipo,Nome,Preco,Foto,NrPecas,Detalhes,Stock,ArmazemFK")] Artigo artigo, IFormFile foto)
         {
             if (id != artigo.Id)
             {
@@ -197,6 +198,15 @@ namespace LojaLegos.Controllers
             {
                 try
                 {
+                    artigo.Foto = artigo.Nr + ".jpg";
+
+                    string nomeLocalizacaoFicheiro = Path.Combine(_webHostEnvironment.WebRootPath, "Imagens");
+                    Directory.CreateDirectory(nomeLocalizacaoFicheiro);
+
+                    string nomeDaFoto = Path.Combine(nomeLocalizacaoFicheiro, artigo.Foto);
+                    using var stream = new FileStream(nomeDaFoto, FileMode.Create);
+                    await foto.CopyToAsync(stream);
+
                     _context.Update(artigo);
                     await _context.SaveChangesAsync();
                 }
@@ -216,6 +226,8 @@ namespace LojaLegos.Controllers
             ViewData["ArmazemFK"] = new SelectList(_context.Armazem, "Id", "Id", artigo.ArmazemFK);
             return View(artigo);
         }
+
+
 
         private bool ArtigoExists(int id)
         {

@@ -4,11 +4,8 @@
     ViewData["Title"] = "Registar na LojaLegos";
 }
 
+<div style="width:75% ; margin: auto; margin-top:40px;">
 <h1 style="width:75% ; margin: auto;text-align:center;">@ViewData["Title"]</h1>
-<h2></h2>
-
-<div style="width:75% ; margin: auto;">
-
 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
     <input asp-for="Input.Cliente.Email" value="a@a.aa" type="hidden" />
 

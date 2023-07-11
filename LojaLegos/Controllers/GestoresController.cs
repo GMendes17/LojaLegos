@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LojaLegos.Data;
 using LojaLegos.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 
 namespace LojaLegos.Controllers
 {
@@ -18,10 +19,12 @@ namespace LojaLegos.Controllers
     public class GestoresController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public GestoresController(ApplicationDbContext context)
+        public GestoresController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Gestores
@@ -59,11 +62,19 @@ namespace LojaLegos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,NrTelemovel,Foto,Email,Cargo")] Gestor gestor)
+        public async Task<IActionResult> Create([Bind("Id,Nome,NrTelemovel,Foto,Email,Cargo")] Gestor gestor, IFormFile foto)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(gestor);
+                gestor.Foto = gestor.Nome + ".jpg";
+
+                string nomeLocalizacaoFicheiro = Path.Combine(_webHostEnvironment.WebRootPath, "Imagens");
+                Directory.CreateDirectory(nomeLocalizacaoFicheiro);
+
+                string nomeDaFoto = Path.Combine(nomeLocalizacaoFicheiro, gestor.Foto);
+                using var stream = new FileStream(nomeDaFoto, FileMode.Create);
+                await foto.CopyToAsync(stream);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -91,7 +102,7 @@ namespace LojaLegos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,NrTelemovel,Foto,Email,Cargo")] Gestor gestor)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,NrTelemovel,Foto,Email,Cargo")] Gestor gestor,IFormFile foto)
         {
             if (id != gestor.Id)
             {
@@ -102,7 +113,17 @@ namespace LojaLegos.Controllers
             {
                 try
                 {
+
+                    gestor.Foto = gestor.Nome + ".jpg";
+
+                    string nomeLocalizacaoFicheiro = Path.Combine(_webHostEnvironment.WebRootPath, "Imagens");
+                    Directory.CreateDirectory(nomeLocalizacaoFicheiro);
+
+                    string nomeDaFoto = Path.Combine(nomeLocalizacaoFicheiro, gestor.Foto);
+                    using var stream = new FileStream(nomeDaFoto, FileMode.Create);
+                    await foto.CopyToAsync(stream);
                     _context.Update(gestor);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
